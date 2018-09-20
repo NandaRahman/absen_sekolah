@@ -1,0 +1,68 @@
+[
+    {
+        "table": "absen",
+        "name": "Absen",
+        "folder": "app\/Models",
+        "namespace": "App\\Models"
+    },
+    {
+        "table": "guru",
+        "name": "Guru",
+        "folder": "app\/Models",
+        "namespace": "App\\Models"
+    },
+    {
+        "table": "kelas",
+        "name": "Kela",
+        "folder": "app\/Models",
+        "namespace": "App\\Models"
+    },
+    {
+        "table": "migrations",
+        "skip": true
+    },
+    {
+        "table": "permission_role",
+        "pivot": true
+    },
+    {
+        "table": "permissions",
+        "name": "Permission",
+        "folder": "app\/Models",
+        "namespace": "App\\Models"
+    },
+    {
+        "table": "role_user",
+        "pivot": true
+    },
+    {
+        "table": "roles",
+        "name": "Role",
+        "folder": "app\/Models",
+        "namespace": "App\\Models"
+    },
+    {
+        "table": "siswa",
+        "name": "Siswa",
+        "folder": "app\/Models",
+        "namespace": "App\\Models"
+    },
+    {
+        "table": "status_absensi",
+        "name": "StatusAbsensi",
+        "folder": "app\/Models",
+        "namespace": "App\\Models"
+    },
+    {
+        "table": "users",
+        "name": "User",
+        "folder": "app\/Models",
+        "namespace": "App\\Models"
+    },
+    {
+        "table": "wali_siswa",
+        "name": "WaliSiswa",
+        "folder": "app\/Models",
+        "namespace": "App\\Models"
+    }
+]
