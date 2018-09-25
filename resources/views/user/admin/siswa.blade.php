@@ -122,6 +122,12 @@
                                                 <input type="text" class="form-control" name="siswa[nama]" id="nama_siswa" placeholder="Masukan Nama Lengkap" value="{{$val->nama}}" required>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-12" for="nomor_pelajar">Nomor Pelajar</label>
+                                            <div class="col-sm-12">
+                                                <input type="number" class="form-control" name="siswa[nomor_pelajar]" id="nomor_pelajar" placeholder="Masukan Nomor Pelajar" value="{{$val->nomor_pelajar}}">
+                                            </div>
+                                        </div>
                                         <div  class="form-group">
                                             <label class="control-label col-sm-12" for="jenis_kelamin_siswa">Jenis Kelamin</label>
                                             <div class="col-sm-12">

@@ -90,6 +90,7 @@ class SiswaController extends Controller
         $request = json_decode(json_encode($request->all()));
         Siswa::where("id",$request->siswa->id)->update([
             'nama'=>$request->siswa->nama,
+            'nomor_pelajar'=>$request->siswa->nomor_pelajar,
             'nomor_akta_kelahiran'=>$request->siswa->akta,
             'alamat'=>$request->siswa->alamat,
             "jenis_kelamin"=>$request->siswa->jenis_kelamin,

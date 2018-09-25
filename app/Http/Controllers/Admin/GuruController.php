@@ -110,9 +110,23 @@ class GuruController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        User::where('id', $request->user_id)->update([
+            'nama'=>$request->nama,
+            'email'=>$request->email,
+        ]);
+        Guru::where('id', $request->id)->update([
+            'nomor_pegawai'=>$request->nomor_pegawai,
+            'telepon'=>$request->telepon,
+            'alamat'=>$request->alamat,
+            'tempat_lahir'=>$request->tempat_lahir,
+            'tanggal_lahir'=>$request->tanggal_lahir,
+            'tahun_mengajar'=>$request->tahun_mengajar,
+            'status_kepegawaian'=>$request->status_kepegawaian,
+            'pendidikan_terakhir'=>$request->pendidikan_terakhir
+        ]);
+        return back();
     }
 
     /**

@@ -21,7 +21,7 @@ class CreateGuruTable extends Migration
             $table->string("alamat",20);
             $table->string("tempat_lahir", 30);
             $table->date("tanggal_lahir");
-            $table->date("tahun_mengajar");
+            $table->integer("tahun_mengajar");
             $table->string("status_kepegawaian");
             $table->string("pendidikan_terakhir");
             $table->text("foto");

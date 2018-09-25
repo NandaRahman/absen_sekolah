@@ -16,20 +16,20 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th>Nomor</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Token Login</th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @if(!empty($guru))
-                                @foreach($guru as $val)
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Nomor</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Token Login</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if(!empty($guru))
+                            @foreach($guru as $val)
                                 <tr class="odd gradeX">
                                     <td class="text-center"><img height="100px" src="{{asset('public/galeri/foto/guru')}}/{{$val->foto}}" alt="{{asset('public/galeri/foto/guru')}}/{{$val->foto}}"></td>
                                     <td>{{$val->nomor_pegawai}}</td>
@@ -41,11 +41,11 @@
                                         <button type="button" class="btn btn-danger"><a href="{{route('admin.guru.hapus',['id'=>$val->getRelation('user')->id])}}"><i class="fa fa-trash" style="color: white"></i></a></button>
                                     </td>
                                 </tr>
-                                @endforeach
-                            @endif
-                            </tbody>
-                        </table>
-                        <!-- /.table-responsive -->
+                            @endforeach
+                        @endif
+                        </tbody>
+                    </table>
+                    <!-- /.table-responsive -->
                 </div>
                 <!-- /.panel-body -->
             </div>
@@ -102,8 +102,6 @@
                                 <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="Masukan Tanggal Lahir" required>
                             </div>
                         </div>
-                        'tahun_mengajar'
-                        ,'status_kepegawaian','pendidikan_terakhir'
                         <div class="form-group">
                             <label class="control-label col-sm-12" for="tahun_mengajar">Tahun Mengajar</label>
                             <div class="col-sm-12">
@@ -117,7 +115,7 @@
                                     <option value="Pegawai Tetap">Pegawai Tetap</option>
                                     <option value="Pegawai Tidak Tetap">Pegawai Tidak Tetap</option>
                                 </select>
-\                            </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-12" for="pendidikan_terakhir">Pendidikan Terakhir</label>
@@ -153,14 +151,82 @@
                             <h5 class="modal-title">Detail Guru</h5>
                         </div>
                         <div class="modal-body" id="content">
-                            {{$val->getRelation('user')->nama}}
+                            <div class="row">
+                                <form id="update-{{$val->id}}" action="{{route('admin.guru.edit')}}" method="post">
+                                    <input type="hidden" class="form-control" name="user_id" id="nama_siswa" placeholder="Masukan Nama Lengkap" value="{{$val->getRelation('user')->id }}" required>
+                                    <input type="hidden" class="form-control" name="id" id="nama_siswa" placeholder="Masukan Nama Lengkap" value="{{$val->id}}" required>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-12" for="nama">Nama Lengkap</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukan Nama Lengkap" value="{{$val->getRelation('user')->nama}}" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-12" for="email">Email</label>
+                                        <div class="col-sm-12">
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="Masukan Email Lengkap" value="{{$val->getRelation('user')->email}}" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-12" for="nomor_pegawai">Nomor Pegawai</label>
+                                        <div class="col-sm-12">
+                                            <input type="number" class="form-control" name="nomor_pegawai" id="nomor_pegawai" placeholder="Masukan Nomor Pegawai" value="{{$val->nomor_pegawai}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-12" for="alamat">Alamat</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" name="alamat" id="alamat" value="{{$val->alamat}}" placeholder="Jl.Nama Jalan XII/24, Kota" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-12" for="telepon">Telepon</label>
+                                        <div class="col-sm-12">
+                                            <input type="number" class="form-control" name="telepon" id="telepon" value="{{$val->telepon}}" placeholder="Telepon" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-12" for="tempat_lahir">Tempat Lahir</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir"  value="{{$val->tempat_lahir}}" placeholder="Masukan Tempat Lahir" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-12" for="tanggal_lahir">Tanggal Lahir</label>
+                                        <div class="col-sm-12">
+                                            <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir"  value="{{$val->tanggal_lahir}}" placeholder="Masukan Tanggal Lahir" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-12" for="tahun_mengajar">Tahun Mengajar</label>
+                                        <div class="col-sm-12">
+                                            <input type="number" class="form-control" name="tahun_mengajar" id="tahun_mengajar"  value="{{$val->tahun_mengajar}}" placeholder="Masukan Tahun Mengajar" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-12" for="status_kepegawaian">Status Kepegawaian</label>
+                                        <div class="col-sm-12">
+                                            <select class="form-control" name="status_kepegawaian" id="status_kepegawaian" required>
+                                                <option value="Pegawai Tetap" @if($val->status_kepegawaian == "Pegawai Tetap") selected @endif>Pegawai Tetap</option>
+                                                <option value="Pegawai Tidak Tetap" @if($val->status_kepegawaian == "Pegawai Tidak Tetap") selected @endif>Pegawai Tidak Tetap</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-12" for="pendidikan_terakhir">Pendidikan Terakhir</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" name="pendidikan_terakhir" value="{{$val->pendidikan_terakhir}}" id="pendidikan_terakhir" placeholder="Pendidikan Terakhir" required>
+                                        </div>
+                                    </div>
+                            </div>
+                            </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="download_pdf"><span><i class="fa fa-download"></i>Download</span></button>
-                            <button type="button" class="btn btn-danger"><a class="btn-link" href="{{route('welcome')}}">Kembali</a></button>
+                            <button type="submit" form="update-{{$val->id}}" class="btn btn-warning"><i class="fa fa-edit" style="color: white"></i> Ubah Data </button>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         @endforeach
     @endif

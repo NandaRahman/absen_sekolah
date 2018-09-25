@@ -47,8 +47,9 @@ Route::get('admin/sekolah/buka','Admin\SekolahController@open')->name('admin.sek
 Route::post('admin/sekolah/update','Admin\SekolahController@update')->name('admin.sekolah.update');
 
 Route::get('admin/guru','Admin\GuruController@index')->name('admin.guru');
-Route::post('admin/guru','Admin\GuruController@create')->name('admin.guru');
 Route::get('admin/guru/{id?}','Admin\GuruController@destroy')->name('admin.guru.hapus');
+Route::post('admin/guru','Admin\GuruController@create')->name('admin.guru');
+Route::post('admin/guru/update','Admin\GuruController@update')->name('admin.guru.edit');
 
 Route::get('admin/kelas','Admin\KelasController@index')->name('admin.kelas');
 Route::get('admin/kelas/hapus/{id}','Admin\KelasController@destroy')->name('admin.kelas.hapus');
