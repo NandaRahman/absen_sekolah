@@ -102,11 +102,11 @@ class Siswa extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function wali()
     {
-        return $this->hasOne(
+        return $this->hasMany(
         // Model
             'App\Models\WaliSiswa',
             // Foreign key

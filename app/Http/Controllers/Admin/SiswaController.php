@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Kelas;
 use App\Models\Siswa;
 use App\Models\StatusSiswa;
+use App\Models\WaliSiswa;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -64,9 +65,16 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editKelas(Request $request)
     {
-        //
+//        dd($request->id);
+        $data = [];
+        if(!empty($request->kelas))
+        $data = $data + ['kelas'=>$request->kelas];
+        if(!empty($request->status))
+        $data = $data + ['status'=>$request->status];
+        Siswa::whereIn("id",$request->id)->update($data);
+        return back();
     }
 
     /**
@@ -78,12 +86,35 @@ class SiswaController extends Controller
      */
     public function update(Request $request)
     {
-        Siswa::where("id",$request->id)->update([
-            'nama'=>$request->nama,
-            'alamat'=>$request->alamat,
-            'kelas'=>$request->kelas,
-            'status'=>$request->status,
+        $request = json_decode(json_encode($request->all()));
+        Siswa::where("id",$request->siswa->id)->update([
+            'nama'=>$request->siswa->nama,
+            'nomor_akta_kelahiran'=>$request->siswa->akta,
+            'alamat'=>$request->siswa->alamat,
+            "jenis_kelamin"=>$request->siswa->jenis_kelamin,
+            "tempat_lahir"=>$request->siswa->tempat_lahir,
+            "tanggal_lahir"=>$request->siswa->tanggal_lahir,
+            "kebangsaan"=>$request->siswa->kebangsaan,
+            "agama"=>$request->siswa->agama,
+            "anak_ke"=>$request->siswa->anak_ke,
+            "status_anak"=>$request->siswa->status,
+            "jumlah_saudara"=>$request->siswa->jumlah_saudara,
+            "siswa_pindahan_baru"=>$request->siswa->siswa_pindahan_baru,
+            "ukuran_sepatu"=>$request->siswa->ukuran_sepatu,
         ]);
+        foreach ($request->wali as $wali){
+            WaliSiswa::where("id",$wali->id)->update([
+                'nama'=>$wali->nama,
+                'alamat'=>$wali->alamat,
+                'telepon'=>$wali->nomor,
+                "tempat_lahir"=>$wali->tempat_lahir,
+                "tanggal_lahir"=>$wali->tanggal_lahir,
+                "kebangsaan"=>$wali->kebangsaan,
+                "agama"=>$wali->agama,
+                "pendidikan_terakhir"=>$wali->pendidikan_terakhir,
+                "pekerjaan"=>$wali->pekerjaan
+            ]);
+        }
         return back();
     }
 

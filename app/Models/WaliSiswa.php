@@ -67,9 +67,24 @@ class WaliSiswa extends Model
         // Model
             'App\Models\Siswa',
             // Foreign key
-            'id',
+            'siswa',
             // Other key
-            'kategori'
+            'id'
+        );
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function kategori()
+    {
+        return $this->belongsTo(
+        // Model
+            'App\Models\KategoriWali',
+            // Foreign key
+            'kategori',
+            // Other key
+            'id'
         );
     }
 

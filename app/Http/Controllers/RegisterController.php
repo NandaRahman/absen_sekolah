@@ -44,7 +44,7 @@ class RegisterController extends Controller
                 $akta = $request->akta_1."/".$request->akta_2."/".$request->akta_3;
             $siswa = Siswa::create([
                 'nama'=>$request->nama_siswa,
-                'akta'=>$akta,
+                'nomor_akta_kelahiran'=>$akta,
                 'alamat'=>$request->alamat_siswa,
                 'kelas'=>Kelas::all()->where("kelas","1")->first()->id,
                 "jenis_kelamin"=>$request->jenis_kelamin_siswa,

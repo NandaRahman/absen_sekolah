@@ -54,6 +54,7 @@ Route::post('admin/kelas','Admin\KelasController@create')->name('admin.kelas');
 Route::post('admin/kelas/update','Admin\KelasController@update')->name('admin.kelas.update');
 
 Route::get('admin/siswa','Admin\SiswaController@index')->name('admin.siswa');
+Route::post('admin/siswa/kelas','Admin\SiswaController@editKelas')->name('admin.siswa.kelas');
 Route::get('admin/siswa/hapus/{id?}','Admin\SiswaController@destroy')->name('admin.siswa.hapus');
 Route::post('admin/siswa/edit','Admin\SiswaController@update')->name('admin.siswa.edit');
 
