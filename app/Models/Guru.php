@@ -24,7 +24,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $alamat
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property \App\Models\Pengajar[] $pengajars
  * @property \App\Models\User $user
  */
 class Guru extends Model 

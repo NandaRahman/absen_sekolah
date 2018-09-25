@@ -10,8 +10,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class GuruController extends Controller
@@ -34,7 +36,6 @@ class GuruController extends Controller
      */
     public function create(Request $request)
     {
-//        dd($request->all());
         if ($this->userValidation($request)){
             $token_first_login = (new Token())->Unique('user', 'token_first_login', 5);
             $user = User::create([
@@ -122,6 +123,9 @@ class GuruController extends Controller
      */
     public function destroy($id)
     {
+        $destinationPath = public_path('galeri/foto/guru');
+        $image = Guru::all()->where("user", $id)->first()->foto;
+        File::delete($destinationPath.'/'.$image);
         User::where("id", $id)->delete();
         return back();
     }

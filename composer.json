@@ -10,7 +10,8 @@
         "deisss/automodel": "^0.0.4",
         "dirape/token": "^1.0",
         "zizaco/entrust": "dev-master",
-        "mpdf/mpdf": "^7.1"
+        "mpdf/mpdf": "^7.1",
+        "nexmo/client": "@beta"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

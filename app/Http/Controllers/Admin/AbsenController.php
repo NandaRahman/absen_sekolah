@@ -23,16 +23,17 @@ class AbsenController extends Controller
 
 
     public function tabel(Request $request){
-        $absen = Absen::with('status','siswa')
-            ->whereRaw('DATE_FORMAT(absen_buka, "%Y-%m-%d")=?',[date('Y-m-d', $request->data/1000)])
-            ->get();
+        $absen = Absen::whereRaw('DATE_FORMAT(absen_buka, "%Y-%m-%d")=?',[date('Y-m-d', $request->data/1000)])->get();
         $table = "
+                <div id=\"kelas\" class=\"col-lg-4\"></div>
                 <table class=\"table table-primary table-stripped\" id='table'>
                     <thead>
                         <tr>
                             <td>no</td>
                             <td>nama</td>
+                            <th>kelas</th>
                             <td>status</td>
+                            <th hidden>kelas</th>
                         </tr>
                     </thead>
                     <tbody>";
@@ -41,8 +42,10 @@ class AbsenController extends Controller
             $table .= "                        
                         <tr>
                             <td>$i</td>
-                            <td>".$val->getRelation('siswa')->nama."</td>
-                            <td>".$val->getRelation('status')->status."</td>
+                            <td>".$val->siswa()->first()->nama."</td>
+                            <td>".$val->pengajar()->getResults()->kelas()->first()->keterangan."</td>
+                            <td>".$val->status()->first()->status."</td>
+                            <td hidden>".$val->pengajar()->getResults()->kelas()->first()->kelas."</td>
                         </tr>";
             $i++;
         }

@@ -12,6 +12,8 @@
 */
 
 use Illuminate\Support\Facades\Route;
+
+Route::get('/sms/test', 'SMSController@smsGateway')->name("sms.coba");
 //Global Route
 Route::get('/welcome', function () {
     return view('welcome');

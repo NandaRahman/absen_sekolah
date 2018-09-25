@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class SiswaController extends Controller
 {
@@ -126,6 +127,9 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
+        $destinationPath = public_path('galeri/foto/siswa');
+        $image = Siswa::all()->where("id", $id)->first()->foto;
+        File::delete($destinationPath.'/'.$image);
         Siswa::where("id", $id)->delete();
         return back();
     }

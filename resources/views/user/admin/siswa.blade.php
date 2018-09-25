@@ -17,7 +17,7 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <div id="status" class="col-lg-2"></div>
-                    <div id="menu" class="col-lg-2"></div>
+                    <div id="kelas" class="col-lg-2"></div>
                     <form id="kelas-update" action="{{route('admin.siswa.kelas')}}" method="post"></form>
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
                         <thead>

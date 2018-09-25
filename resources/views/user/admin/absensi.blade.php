@@ -29,7 +29,9 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <div class="container-fluid">
-                        <div class="row" id="row"></div>
+                        <div class="row" id="row">
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -87,8 +89,22 @@
                                     data: formData,
                                     success:function(data){
                                         $('#table-content').show();
-                                        document.getElementById("row").innerHTML= data;
-                                        $('#table').DataTable();
+                                        document.getElementById("row").innerHTML=data;
+                                        $('#table').DataTable({
+                                            bScrollCollapse: true,
+                                            initComplete: function() {
+                                                var data = this.api().column(4);
+                                                var menu = $('<select class="form-control filter-menu"><option value="">-- Kelas --</option></select>')
+                                                    .appendTo('#kelas')
+                                                    .on('change', function() {
+                                                        var val = $(this).val();
+                                                        data.search(val ? '^' + $(this).val() + '$' : val, true, false).draw();
+                                                    });
+                                                data.data().unique().sort().each(function(d, j) {
+                                                    menu.append('<option value="' + d + '">' + d + '</option>');
+                                                });
+                                            }
+                                        });
                                     },
                                     cache: false,
                                     contentType: false,
