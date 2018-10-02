@@ -21,33 +21,12 @@
         <div class="container">
             <div class="row about-container">
 
-                <div class="col-lg-6 content order-lg-1 order-2">
-                    <h2 class="title">Profil SD Wonokusumo</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-
-                    <div class="icon-box wow fadeInUp">
-                        <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-                        <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-                        <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-                    </div>
-
-                    <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="icon"><i class="fa fa-photo"></i></div>
-                        <h4 class="title"><a href="">Magni Dolores</a></h4>
-                        <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                    </div>
-
-                    <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="icon"><i class="fa fa-bar-chart"></i></div>
-                        <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                        <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-                    </div>
-
+                <div class="col-lg-12 content order-lg-1 order-2">
+                    <h2 class="title">{{$sekolah->nama}}</h2>
+                    <p><pre style="font-family: Arial;">{{$sekolah->visi_misi}}</pre></p>
                 </div>
 
-                <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
+                <div class="col-lg-12 background order-lg-2 order-1 wow fadeInRight"></div>
             </div>
 
         </div>
@@ -59,31 +38,25 @@
     <section id="facts">
         <div class="container wow fadeIn">
             <div class="section-header">
-                <h3 class="section-title">Facts</h3>
-                <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                <h3 class="section-title">Fakta</h3>
+                <p class="section-description">Lulusan dan jumlah karyawan sekolah saat ini</p>
             </div>
             <div class="row counters">
 
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">232</span>
-                    <p>Clients</p>
+                <div class="col-lg-4 col-6 text-center">
+                    <span data-toggle="counter-up">{{$jumlah->siswa}}</span>
+                    <p>Siswa</p>
                 </div>
 
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">521</span>
-                    <p>Projects</p>
+                <div class="col-lg-4 col-6 text-center">
+                    <span data-toggle="counter-up">{{$jumlah->guru}}</span>
+                    <p>Guru</p>
                 </div>
 
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">1,463</span>
-                    <p>Hours Of Support</p>
+                <div class="col-lg-4 col-6 text-center">
+                    <span data-toggle="counter-up">{{$jumlah->lulusan}}</span>
+                    <p>Lulusan</p>
                 </div>
-
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">15</span>
-                    <p>Hard Workers</p>
-                </div>
-
             </div>
 
         </div>
@@ -247,61 +220,22 @@
                 <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/team-1.jpg" alt=""></div>
-                        <h4>Walter White</h4>
-                        <span>Chief Executive Officer</span>
-                        <div class="social">
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-google-plus"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>
+                @foreach($guru as $val)
+                    <div class="col-lg-3 col-md-6">
+                        <div class="member">
+                            <div class="pic"><img src="{{asset('public/galeri/foto/guru')}}/{{$val->foto}}" alt="{{asset('public/galeri/foto/guru')}}/{{$val->foto}}"></div>
+                            <h4>{{ $val->user()->first()->nama }}</h4>
+                            <span>{{ $val->user()->first()->email }}</span>
+                            <div class="social">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-google-plus"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/team-2.jpg" alt=""></div>
-                        <h4>Sarah Jhinson</h4>
-                        <span>Product Manager</span>
-                        <div class="social">
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-google-plus"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/team-3.jpg" alt=""></div>
-                        <h4>William Anderson</h4>
-                        <span>CTO</span>
-                        <div class="social">
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-google-plus"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/team-4.jpg" alt=""></div>
-                        <h4>Amanda Jepson</h4>
-                        <span>Accountant</span>
-                        <div class="social">
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-google-plus"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>
@@ -328,17 +262,17 @@
                     <div class="info">
                         <div>
                             <i class="fa fa-map-marker"></i>
-                            <p>A108 Adam Street<br>New York, NY 535022</p>
+                            <p>{{$sekolah->alamat}}</p>
                         </div>
 
                         <div>
                             <i class="fa fa-envelope"></i>
-                            <p>info@example.com</p>
+                            <p>{{$sekolah->email}}</p>
                         </div>
 
                         <div>
-                            <i class="fa fa-phone"></i>
-                            <p>+1 5589 55488 55s</p>
+                            <i class="fa fa-building"></i>
+                            <p>{{$sekolah->didirikan}}</p>
                         </div>
                     </div>
 

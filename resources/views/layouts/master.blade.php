@@ -7,6 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>{{ config('app.name', 'Absen') }}</title>
+    <!-- Favicons -->
+    <link href="{{asset("public/galeri/foto/logo.jpeg")}}" rel="icon">
+
     <link href="{{asset('public/theme/sb-admin/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- MetisMenu CSS -->

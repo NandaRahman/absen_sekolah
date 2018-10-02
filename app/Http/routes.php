@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/sms/test', 'SMSController@smsGateway')->name("sms.coba");
 //Global Route
-Route::get('/welcome', function () {
-    return view('welcome');
-})->name("welcome");
+Route::get('/welcome', "WelcomeController@index")->name("welcome");
 
 Route::get('/sekolah/pendaftaran', 'RegisterController@index')->name("pendaftaran");
 Route::post('/sekolah/pendaftaran', 'RegisterController@create')->name("pendaftaran");

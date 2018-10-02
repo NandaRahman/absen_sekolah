@@ -34,6 +34,10 @@ class HomeController extends Controller
         return view('user/home');
     }
 
+    public function welcome()
+    {
+        return view('user/home');
+    }
 
 
 }

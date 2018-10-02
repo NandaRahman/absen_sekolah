@@ -8,8 +8,7 @@
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="{{asset("public/theme/regna/img/favicon.png")}}" rel="icon">
-    <link href="{{asset("public/theme/regna/img/apple-touch-icon.png")}}" rel="apple-touch-icon">
+    <link href="{{asset("public/galeri/foto/logo.jpeg")}}" rel="icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
@@ -24,7 +23,6 @@
     <!-- Main Stylesheet File -->
     <link href="{{asset("public/theme/regna/css/style.css")}}" rel="stylesheet">
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyD5FyJppfgYyWXDaH-fd_77bt23DEKLwG4"></script>
-
 
     <script src="{{asset("public/theme/regna/lib/jquery/jquery.min.js")}}"></script>
     <script src="{{asset("public/theme/regna/lib/jquery/jquery-migrate.min.js")}}"></script>
@@ -118,7 +116,7 @@ Header
     <div class="container">
 
         <div id="logo" class="pull-left">
-            <a href="#hero"><img src="{{asset("public/theme/regna/img/logo.png")}}" alt="" title="" /></a>
+            <a href="#hero"><img src="{{asset("public/galeri/foto/logo.jpeg")}}" alt="" title="" /></a>
             <!-- Uncomment below if you prefer to use a text logo -->
             <!--<h1><a href="#hero">Regna</a></h1>-->
         </div>
