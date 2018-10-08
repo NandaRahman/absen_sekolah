@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\KategoriWali;
 use App\Models\Kelas;
+use App\Models\Sekolah;
 use App\Models\Siswa;
+use App\Models\SiswaPindahan;
 use App\Models\StatusSiswa;
 use App\Models\WaliSiswa;
 use Exception;
@@ -26,7 +28,9 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        return view("pendaftaran")->with("kategori_wali", KategoriWali::all());
+        return view("pendaftaran")
+            ->with("sekolah", Sekolah::all()->first())
+            ->with("kategori_wali", KategoriWali::all());
     }
 
     /**
@@ -60,7 +64,16 @@ class RegisterController extends Controller
                 'status'=>1,
                 'foto'=>$photoName,
             ]);
-            $wali = WaliSiswa::create([
+            if ($request->siswa_pindahan_baru == "pindahan"){
+                SiswaPindahan::create([
+                    "siswa"=> $siswa->id,
+                    "nama_sekolah"=>$request->nama_sekolah,
+                    "alasan_keluar"=>$request->alasan_keluar,
+                    "tanggal_keluar"=>$request->tanggal_keluar,
+                    "kelas_pindahan"=>$request->kelas_pindahan
+                ]);
+            }
+            WaliSiswa::create([
                 'siswa'=>$siswa->id,
                 'nama'=>$request->nama_ayah,
                 'alamat'=>$request->alamat_ayah,

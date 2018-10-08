@@ -20,6 +20,13 @@ class CreateSekolahTable extends Migration
             $table->text('visi_misi')->nullable();
             $table->text('deskripsi')->nullable();
             $table->string('akreditasi', 1)->nullable();
+            $table->string('nss')->nullable();
+            $table->string('npsn')->nullable();
+            $table->string('kepala_sekolah')->nullable();
+            $table->string('email')->nullable();
+            $table->string('yayasan')->nullable();
+            $table->text('sertifikasi')->nullable();
+            $table->text('alamat')->nullable();
             $table->integer('penerimaan_siswa')->nullable();
             $table->integer('buka_penerimaan')->nullable();
             $table->timestamps();

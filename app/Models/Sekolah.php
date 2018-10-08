@@ -33,7 +33,7 @@ class Sekolah extends Model
      */
     protected $fillable = [
         'nama', 'didirikan', 'visi_misi', 'deskripsi', 'akreditasi','penerimaan_siswa','buka_penerimaan',
-        'NSS','NPSN','sertifikasi','kepala_sekolah','alamat','email','yayasan'
+        'nss','npsn','sertifikasi','kepala_sekolah','alamat','email','yayasan'
     ];
 
     /**

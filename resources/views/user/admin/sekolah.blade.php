@@ -30,12 +30,12 @@
                                 <tr>
                                     <td>NSS</td>
                                     <td>:</td>
-                                    <td><input  form="form-update" type="number" class="form-control" name="nss" value="{{$val->NSS}}"></td>
+                                    <td><input  form="form-update" type="number" class="form-control" name="nss" value="{{$val->nss}}"></td>
                                 </tr>
                                 <tr>
                                     <td>NPSN</td>
                                     <td>:</td>
-                                    <td><input  form="form-update" type="number" class="form-control" name="npsn" value="{{$val->NPSN}}"></td>
+                                    <td><input  form="form-update" type="number" class="form-control" name="npsn" value="{{$val->npsn}}"></td>
                                 </tr>
                                 <tr>
                                     <td>Nama</td>
@@ -97,11 +97,6 @@
                                         <form id="form-update" action="{{route('admin.sekolah.update')}}" method="post">
                                         </form>
                                         <button form="form-update" type="submit" class="btn btn-success"><i class="fa fa-edit" style="color: white"></i> Ubah</button>
-                                        @if($val->buka_penerimaan > 0)
-                                            <button type="button" class="btn btn-warning"><a href="{{route('admin.sekolah.tutup')}}" style="color: white; text-decoration: none"><i class="fa fa-eye"></i> Tutup Penerimaan</a></button>
-                                        @else
-                                            <button type="button" class="btn btn-danger"><a href="{{route('admin.sekolah.buka')}}" style="color: white; text-decoration: none"><i class="fa fa-eye"></i> Buka Penerimaan</a></button>
-                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

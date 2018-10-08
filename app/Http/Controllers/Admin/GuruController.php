@@ -41,7 +41,7 @@ class GuruController extends Controller
             $user = User::create([
                 'nama'=>$request->nama,
                 'email'=>$request->email,
-                'password'=>Hash::make($token_first_login),
+                'password'=> Hash::make($token_first_login),
                 'token_first_login'=>$token_first_login,
             ]);
             $user->attachRole(Role::find(2));
@@ -50,7 +50,7 @@ class GuruController extends Controller
             $request->foto->move(public_path('galeri/foto/guru'), $photoName);
             Guru::create([
                 'user'=>$user->id,
-                'foto'=>$photoName
+                'foto'=>$photoName,
             ]+$request->all());
         }else {
             Session::flash('status', 'Gagal, Pastikan email dan nomor pegawai tidak ada yang sama');

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Absen;
+use App\Models\StatusAbsensi;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -20,18 +22,20 @@ class SMSController extends Controller
      */
     public function index()
     {
-        //
+        $status = StatusAbsensi::all()->where('status','Alpha')->first();
+        $absen = Absen::where('status', $status->id)
+            ->whereRaw("abs(timestampdiff(day, \"absen_buka\", NOW()))<=6")
+            ->get();
     }
 
-
-    public function smsGateway(){
+    public function smsGateway($to, $from, $text){
         $basic  = new \Nexmo\Client\Credentials\Basic(self::NEXMO_API_KEY, self::NEXMO_API_SECRET);
         $client = new \Nexmo\Client($basic);
         try {
             $message = $client->message()->send([
-                'to'   => "628884841479",
-                'from'   => "Mehisa",
-                'text'   => "Hello Bro Test"
+                'to'   => $to,
+                'from'   => $from,
+                'text'   => $text
             ]);
             dd($message);
         } catch (\Nexmo\Client\Exception\Request $e) {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Kelas;
+use App\Models\Sekolah;
 use App\Models\Siswa;
 use App\Models\StatusSiswa;
 use Illuminate\Http\Request;
@@ -23,6 +24,7 @@ class PenerimaanController extends Controller
         return view('user/admin/penerimaan')
             ->with('siswa',Siswa::with('wali','status', 'kelas')->where("status",'=',$status->id)->get())
             ->with('kelas',Kelas::all())
+            ->with('sekolah',Sekolah::all()->first())
             ->with('status',StatusSiswa::where("id",'<>',$status->id)->get());
     }
 
