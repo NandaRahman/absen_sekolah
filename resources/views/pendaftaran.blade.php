@@ -27,7 +27,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="nama_siswa">Nama Lengkap</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="nama_siswa" id="nama_siswa" placeholder="Masukan Nama Lengkap" required>
+                                                <input type="text" class="form-control" name="nama_siswa" id="nama_siswa" required>
                                             </div>
                                         </div>
                                         <div  class="form-group">
