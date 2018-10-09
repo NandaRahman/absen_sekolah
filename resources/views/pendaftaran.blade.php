@@ -11,7 +11,7 @@
         <section id="form-school">
             <div class="container wow fadeIn">
                 <div class="section-header">
-                    <h3 class="section-title">Form ini dibuka oleh pihak sekolah apabila sidah pada waktunya.</h3>
+                    <h3 class="section-title">Form ini dibuka oleh pihak sekolah apabila sudah pada waktunya.</h3>
                 </div>
             </div>
         </section>
@@ -43,19 +43,19 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="alamat_siswa">Alamat</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="alamat_siswa" id="alamat_siswa" placeholder="Jl.Nama Jalan XII/24, Kota" required>
+                                                <input type="text" class="form-control" name="alamat_siswa" id="alamat_siswa" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="tempat_lahir_siswa">Tempat Lahir</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="tempat_lahir_siswa" id="tempat_lahir_siswa" placeholder="Masukan Tempat Lahir" required>
+                                                <input type="text" class="form-control" name="tempat_lahir_siswa" id="tempat_lahir_siswa" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="tanggal_lahir_siswa">Tanggal Lahir</label>
                                             <div class="col-sm-12">
-                                                <input type="date" class="form-control" name="tanggal_lahir_siswa" id="tanggal_lahir_siswa" placeholder="Masukan Tanggal Lahir" required>
+                                                <input type="date" class="form-control" name="tanggal_lahir_siswa" id="tanggal_lahir_siswa" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -71,13 +71,13 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="agama_siswa">Agama</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="agama_siswa" id="agama_siswa" placeholder="Masukan Agama" required>
+                                                <input type="text" class="form-control" name="agama_siswa" id="agama_siswa" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="anak_ke">Anak Ke</label>
                                             <div class="col-sm-12">
-                                                <input type="number" class="form-control" name="anak_ke" id="anak_ke" placeholder="Anak Ke" required>
+                                                <input type="number" class="form-control" name="anak_ke" id="anak_ke" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -93,7 +93,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="jumlah_saudara">Jumlah Saudara</label>
                                             <div class="col-sm-12">
-                                                <input type="number" class="form-control" name="jumlah_saudara" id="jumlah_saudara" placeholder="Jml Saudara" required>
+                                                <input type="number" class="form-control" name="jumlah_saudara" id="jumlah_saudara" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -119,7 +119,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="ukuran_sepatu">Ukuran Sepatu</label>
                                             <div class="col-sm-12">
-                                                <input type="number" class="form-control" name="ukuran_sepatu" id="ukuran_sepatu" placeholder="Ukuran Sepatu" required>
+                                                <input type="number" class="form-control" name="ukuran_sepatu" id="ukuran_sepatu" required>
                                             </div>
                                         </div>
                                         <div  class="form-group">
@@ -151,7 +151,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="nama_ayah">Nama Lengkap</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="nama_ayah" id="nama_ayah" placeholder="Masukan Nama Lengkap" required>
+                                                <input type="text" class="form-control" name="nama_ayah" id="nama_ayah" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -179,25 +179,25 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="alamat_ayah">Alamat Lengkap</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="alamat_ayah" id="alamat_ayah" placeholder="Jl.Nama Jalan XII/24, Kota" required>
+                                                <input type="text" class="form-control" name="alamat_ayah" id="alamat_ayah" required>
                                             </div>
                                         </div>
                                         <div  class="form-group">
                                             <label class="control-label col-sm-12" for="nomor_ayah">Nomor Telepon</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control phone-input" name="nomor_ayah" id="nomor_ayah" placeholder="0828182xxx" required>
+                                                <input type="text" class="form-control phone-input" name="nomor_ayah" id="nomor_ayah" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="tempat_lahir_ayah">Tempat Lahir</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="tempat_lahir_ayah" id="tempat_lahir_ayah" placeholder="Masukan Tempat Lahir" required>
+                                                <input type="text" class="form-control" name="tempat_lahir_ayah" id="tempat_lahir_ayah" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="tanggal_lahir_ayah">Tanggal Lahir</label>
                                             <div class="col-sm-12">
-                                                <input type="date" class="form-control" name="tanggal_lahir_ayah" id="tanggal_lahir_ayah" placeholder="Masukan Tanggal Lahir" required>
+                                                <input type="date" class="form-control" name="tanggal_lahir_ayah" id="tanggal_lahir_ayah" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -213,19 +213,19 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="agama_ayah">Agama</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="agama_ayah" id="agama_ayah" placeholder="Masukan Agama" required>
+                                                <input type="text" class="form-control" name="agama_ayah" id="agama_ayah" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="pendidikan_terakhir_ayah">Pendidikan Terakhir</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="pendidikan_terakhir_ayah" id="pendidikan_terakhir_ayah" placeholder="Masukan Pendidikan" required>
+                                                <input type="text" class="form-control" name="pendidikan_terakhir_ayah" id="pendidikan_terakhir_ayah" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="pekerjaan_ayah">Pekerjaan</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="pekerjaan_ayah" id="pekerjaan_ayah" placeholder="Masukan Pekerjaan" required>
+                                                <input type="text" class="form-control" name="pekerjaan_ayah" id="pekerjaan_ayah" required>
                                             </div>
                                         </div>
                                     </div>
@@ -238,7 +238,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="nama_ibu">Nama Lengkap</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="nama_ibu" id="nama_ibu" placeholder="Masukan Nama Lengkap" required>
+                                                <input type="text" class="form-control" name="nama_ibu" id="nama_ibu" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -266,25 +266,25 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="alamat_ibu">Alamat Lengkap</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="alamat_ibu" id="alamat_ibu" placeholder="Jl.Nama Jalan XII/24, Kota" required>
+                                                <input type="text" class="form-control" name="alamat_ibu" id="alamat_ibu" required>
                                             </div>
                                         </div>
                                         <div  class="form-group">
                                             <label class="control-label col-sm-12" for="nomor_ibu">Nomor Telepon</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control phone-input" name="nomor_ibu" id="nomor_ibu" placeholder="0828182xxx" required>
+                                                <input type="text" class="form-control phone-input" name="nomor_ibu" id="nomor_ibu" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="tempat_lahir_ibu">Tempat Lahir</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="tempat_lahir_ibu" id="tempat_lahir_ibu" placeholder="Masukan Tempat Lahir" required>
+                                                <input type="text" class="form-control" name="tempat_lahir_ibu" id="tempat_lahir_ibu" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="tanggal_lahir_ibu">Tanggal Lahir</label>
                                             <div class="col-sm-12">
-                                                <input type="date" class="form-control" name="tanggal_lahir_ibu" id="tanggal_lahir_ibu" placeholder="Masukan Tanggal Lahir" required>
+                                                <input type="date" class="form-control" name="tanggal_lahir_ibu" id="tanggal_lahir_ibu" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -300,19 +300,19 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="agama_ibu">Agama</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="agama_ibu" id="agama_ibu" placeholder="Masukan Agama" required>
+                                                <input type="text" class="form-control" name="agama_ibu" id="agama_ibu" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="pendidikan_terakhir_ibu">Pendidikan Terakhir</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="pendidikan_terakhir_ibu" id="pendidikan_terakhir_ibu" placeholder="Masukan Pendidikan" required>
+                                                <input type="text" class="form-control" name="pendidikan_terakhir_ibu" id="pendidikan_terakhir_ibu" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="pekerjaan_ibu">Pekerjaan</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="pekerjaan_ibu" id="pekerjaan_ibu" placeholder="Masukan Pekerjaan" required>
+                                                <input type="text" class="form-control" name="pekerjaan_ibu" id="pekerjaan_ibu" required>
                                             </div>
                                         </div>
                                     </div>
@@ -325,7 +325,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="nama_wali">Nama Lengkap</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="nama_wali" id="nama_wali" placeholder="Masukan Nama Lengkap">
+                                                <input type="text" class="form-control" name="nama_wali" id="nama_wali">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -353,25 +353,25 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="alamat_wali">Alamat Lengkap</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="alamat_wali" id="alamat_wali" placeholder="Jl.Nama Jalan XII/24, Kota">
+                                                <input type="text" class="form-control" name="alamat_wali" id="alamat_wali">
                                             </div>
                                         </div>
                                         <div  class="form-group">
                                             <label class="control-label col-sm-12" for="nomor_wali">Nomor Telepon</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control phone-input" name="nomor_wali" id="nomor_wali" placeholder="0828182xxx">
+                                                <input type="text" class="form-control phone-input" name="nomor_wali" id="nomor_wali">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="tempat_lahir_wali">Tempat Lahir</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="tempat_lahir_wali" id="tempat_lahir_wali" placeholder="Masukan Tempat Lahir">
+                                                <input type="text" class="form-control" name="tempat_lahir_wali" id="tempat_lahir_wali">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="tanggal_lahir_wali">Tanggal Lahir</label>
                                             <div class="col-sm-12">
-                                                <input type="date" class="form-control" name="tanggal_lahir_wali" id="tanggal_lahir_wali" placeholder="Masukan Tanggal Lahir">
+                                                <input type="date" class="form-control" name="tanggal_lahir_wali" id="tanggal_lahir_wali">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -387,19 +387,19 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="agama_wali">Agama</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="agama_wali" id="agama_wali" placeholder="Masukan Agama">
+                                                <input type="text" class="form-control" name="agama_wali" id="agama_wali">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="pendidikan_terakhir_wali">Pendidikan Terakhir</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="pendidikan_terakhir_wali" id="pendidikan_terakhir_wali" placeholder="Masukan Pendidikan">
+                                                <input type="text" class="form-control" name="pendidikan_terakhir_wali" id="pendidikan_terakhir_wali">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="pekerjaan_wali">Pekerjaan</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="pekerjaan_wali" id="pekerjaan_wali" placeholder="Masukan Pekerjaan">
+                                                <input type="text" class="form-control" name="pekerjaan_wali" id="pekerjaan_wali">
                                             </div>
                                         </div>
                                         <div class="form-group">
