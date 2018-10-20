@@ -20,7 +20,6 @@ class CreateWaliSiswaTable extends Migration
 
             $table->string("nama",20);
             $table->string("alamat",20);
-            $table->string("telepon",20)->nullable();
             $table->string("tempat_lahir", 30);
             $table->date("tanggal_lahir");
             $table->string("kebangsaan", 3);

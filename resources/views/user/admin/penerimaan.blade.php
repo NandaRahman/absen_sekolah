@@ -28,7 +28,7 @@
                         <thead>
                         <tr>
                             <th></th>
-                            <th>Foto / Nomor</th>
+                            <th>Foto</th>
                             <th>Nama</th>
                             <th>Alamat</th>
                             <th>Kelas</th>
@@ -46,8 +46,7 @@
                                         <input type="checkbox" class="selected-menu" form="kelas-update" name="id[]" value="{{$val->id}}">
                                     </td>
                                     <td class="text-center">
-                                        <img height="100px" src="{{asset('public/galeri/foto/siswa')}}/{{$val->foto}}" alt="Foto Siswa"><br>
-                                        @if(!empty($val->nomor_pelajar)){{$val->nomor_pelajar}}@else Belum Ada Nomor @endif</td>
+                                        <img height="100px" src="{{asset('galeri/foto/siswa')}}/{{$val->foto}}" alt="Foto Siswa"><br>
                                     <td>
                                         {{$val->nama}}
                                     </td>
@@ -122,12 +121,6 @@
                                                 <input type="text" class="form-control" name="siswa[nama]" id="nama_siswa" placeholder="Masukan Nama Lengkap" value="{{$val->nama}}" required>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-sm-12" for="nama_siswa">Nomor Pelajar</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="siswa[nomor_pelajar]" id="nama_siswa" placeholder="Masukan Nomor Pelajar" value="{{$val->nomor_pelajar}}" required>
-                                            </div>
-                                        </div>
                                         <div  class="form-group">
                                             <label class="control-label col-sm-12" for="jenis_kelamin_siswa">Jenis Kelamin</label>
                                             <div class="col-sm-12">
@@ -136,6 +129,12 @@
                                                     <option value="L" @if($val->jenis_kelamin == "L") selected @endif>Laki laki</option>
                                                     <option value="P" @if($val->jenis_kelamin == "P") selected @endif>Perumpuan</option>
                                                 </select>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group">
+                                            <label class="control-label col-sm-12" for="telepon">Nomor Telepon</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control phone-input" name="siswa[telepon]" id="telepon" placeholder="0828182xxx" value="{{$val->telepon}}" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -213,7 +212,7 @@
                                         <div  class="form-group">
                                             <label for="akta_siswa" class="control-label col-sm-12">Nomor Kelahiran (Dilihat Di Akta Kelahiran)</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" name="siswa[akta]" value="{{$val->nomor_akta_kelahiran}}" id="akta_siswa" placeholder="Akta Kelahiran" required>
+                                                <input type="text" class="form-control" name="siswa[nomor_akta_kelahiran]" value="{{$val->nomor_akta_kelahiran}}" id="akta_siswa" placeholder="Akta Kelahiran" required>
                                             </div>
                                         </div>
                                     </div>
@@ -231,12 +230,6 @@
                                                 <label class="control-label col-sm-12" for="alamat_ayah">Alamat Lengkap</label>
                                                 <div class="col-sm-12">
                                                     <input type="text" class="form-control" name="wali[{{$wali->id}}][alamat]" id="alamat_ayah" value="{{$wali->alamat}}" placeholder="Jl.Nama Jalan XII/24, Kota" required>
-                                                </div>
-                                            </div>
-                                            <div  class="form-group">
-                                                <label class="control-label col-sm-12" for="nomor_ayah">Nomor Telepon</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control phone-input" name="wali[{{$wali->id}}][nomor]" id="nomor_ayah" placeholder="0828182xxx" value="{{$wali->telepon}}" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">

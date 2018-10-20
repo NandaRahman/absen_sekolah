@@ -132,6 +132,12 @@
                                                 <input type="number" name="akta_3" class="form-control four-input col-lg-2  col-md-3 col-sm-4" placeholder="20xx">
                                             </div>
                                         </div>
+                                        <div  class="form-group">
+                                            <label class="control-label col-sm-12" for="nomor_wali">Nomor Telepon Wali</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control phone-input" name="telepon" id="nomor_wali" placeholder="0828182xxx">
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="foto_siswa">Foto Siswa (3x4 Max. 100kb)</label>
                                             <div class="col-sm-12">
@@ -180,12 +186,6 @@
                                             <label class="control-label col-sm-12" for="alamat_ayah">Alamat Lengkap</label>
                                             <div class="col-sm-12">
                                                 <input type="text" class="form-control" name="alamat_ayah" id="alamat_ayah" placeholder="Jl.Nama Jalan XII/24, Kota" required>
-                                            </div>
-                                        </div>
-                                        <div  class="form-group">
-                                            <label class="control-label col-sm-12" for="nomor_ayah">Nomor Telepon</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control phone-input" name="nomor_ayah" id="nomor_ayah" placeholder="0828182xxx" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -269,12 +269,6 @@
                                                 <input type="text" class="form-control" name="alamat_ibu" id="alamat_ibu" placeholder="Jl.Nama Jalan XII/24, Kota" required>
                                             </div>
                                         </div>
-                                        <div  class="form-group">
-                                            <label class="control-label col-sm-12" for="nomor_ibu">Nomor Telepon</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control phone-input" name="nomor_ibu" id="nomor_ibu" placeholder="0828182xxx" required>
-                                            </div>
-                                        </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-12" for="tempat_lahir_ibu">Tempat Lahir</label>
                                             <div class="col-sm-12">
@@ -354,12 +348,6 @@
                                             <label class="control-label col-sm-12" for="alamat_wali">Alamat Lengkap</label>
                                             <div class="col-sm-12">
                                                 <input type="text" class="form-control" name="alamat_wali" id="alamat_wali" placeholder="Jl.Nama Jalan XII/24, Kota">
-                                            </div>
-                                        </div>
-                                        <div  class="form-group">
-                                            <label class="control-label col-sm-12" for="nomor_wali">Nomor Telepon</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control phone-input" name="nomor_wali" id="nomor_wali" placeholder="0828182xxx">
                                             </div>
                                         </div>
                                         <div class="form-group">

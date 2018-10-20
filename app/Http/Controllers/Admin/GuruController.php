@@ -18,6 +18,13 @@ use Illuminate\Support\Facades\Validator;
 
 class GuruController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        date_default_timezone_set('Asia/Jakarta');
+    }
+
     /**
      * Display a listing of the resource.
      *

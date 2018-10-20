@@ -41,7 +41,7 @@
                                         <input type="checkbox" class="selected-menu" form="kelas-update" name="id[]" value="{{$val->id}}">
                                     </td>
                                     <td class="text-center">
-                                        <img height="100px" src="{{asset('public/galeri/foto/siswa')}}/{{$val->foto}}" alt="Foto Siswa"><br>
+                                        <img height="100px" src="{{asset('galeri/foto/siswa')}}/{{$val->foto}}" alt="Foto Siswa"><br>
                                         @if(!empty($val->nomor_pelajar)){{$val->nomor_pelajar}}@else Belum Ada Nomor @endif</td>
                                     <td>
                                         {{$val->nama}}
@@ -58,6 +58,7 @@
                                     <td hidden>{{$val->getRelation('kelas')->kelas}}</td>
                                     <td hidden>{{$val->getRelation('status')->status}}</td>
                                     <td class="text-center">
+                                        <button type="button" class="btn btn-primary download_pdf" siswa="{{$val->id}}"><span><i class="fa fa-download"></i></span></button>
                                         <button type="button"  data-toggle="modal" data-target="#detail-{{$val->id}}" class="btn btn-success"><i class="fa fa-eye"></i></button>
                                         <button type="button" class="btn btn-danger"><a href="{{route('admin.siswa.hapus',["id"=>$val->id])}}"><i class="fa fa-trash" style="color: white"></i></a></button>
                                     </td>
@@ -296,6 +297,23 @@
 
     <script>
         $(document).ready(function() {
+            $(".download_pdf").click(function() {
+                var formData = new FormData();
+                console.log($(this).attr('siswa'));
+                formData.append("id",$(this).attr('siswa'));
+                $.ajax({
+                    url: "{{route("admin.siswa.cetak")}}",
+                    type: 'POST',
+                    data: formData,
+                    success:function(data){
+                        alert("File Downloaded")
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            });
+
             $('#check_all').change(function () {
                 if($(this).prop('checked')){
                     $('.selected-menu').each(function() {
@@ -356,6 +374,7 @@
                 }
                 printImage(this)
             });
+
 
         });
     </script>

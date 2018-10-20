@@ -43,13 +43,14 @@ class RegisterController extends Controller
         try{
             $photoName = time().'.'.$request->foto_siswa->getClientOriginalExtension();
             $request->foto_siswa->move(public_path('galeri/foto/siswa'), $photoName);
-            $akta = null;
+            $akta = "";
             if(!empty($request->akta_1) && !empty($request->akta_2) && !empty($request->akta_3))
                 $akta = $request->akta_1."/".$request->akta_2."/".$request->akta_3;
             $siswa = Siswa::create([
                 'nama'=>$request->nama_siswa,
                 'nomor_akta_kelahiran'=>$akta,
                 'alamat'=>$request->alamat_siswa,
+                'telepon'=>$request->telepon,
                 'kelas'=>Kelas::all()->where("kelas","1")->first()->id,
                 "jenis_kelamin"=>$request->jenis_kelamin_siswa,
                 "tempat_lahir"=>$request->tempat_lahir_siswa,
@@ -77,7 +78,6 @@ class RegisterController extends Controller
                 'siswa'=>$siswa->id,
                 'nama'=>$request->nama_ayah,
                 'alamat'=>$request->alamat_ayah,
-                'telepon'=>$request->nomor_ayah,
                 'kategori'=>$request->kategori_ayah,
                 "tempat_lahir"=>$request->tempat_lahir_ayah,
                 "tanggal_lahir"=>$request->tanggal_lahir_ayah,
@@ -90,7 +90,6 @@ class RegisterController extends Controller
                 'siswa'=>$siswa->id,
                 'nama'=>$request->nama_ibu,
                 'alamat'=>$request->alamat_ibu,
-                'telepon'=>$request->nomor_ibu,
                 'kategori'=>$request->kategori_ibu,
                 "tempat_lahir"=>$request->tempat_lahir_ibu,
                 "tanggal_lahir"=>$request->tanggal_lahir_ibu,
@@ -104,7 +103,6 @@ class RegisterController extends Controller
                     'siswa'=>$siswa->id,
                     'nama'=>$request->nama_wali,
                     'alamat'=>$request->alamat_wali,
-                    'telepon'=>$request->nomor_wali,
                     'kategori'=>$request->kategori_wali,
                     "tempat_lahir"=>$request->tempat_lahir_wali,
                     "tanggal_lahir"=>$request->tanggal_lahir_wali,
@@ -138,7 +136,7 @@ class RegisterController extends Controller
             ."<th colspan=\"4\" class=\"text-center\">BUKTI PENDAFTARAN<br>SD Wonokusumo</th>"
             ."</tr>"
             ."<tr>"
-            ."<td rowspan=\"4\" class=\"align-top\" width=\"200px\"><img src=\"#\" class=\"text-center\" width=\"200px\" alt=\"Foto\"></td>"
+            ."<td rowspan=\"4\" class=\"align-top\" width=\"200px\"><img height=\"100px\" src=\"".asset('galeri/foto/siswa')."/$siswa->foto\" alt=\"Foto Siswa\"></td>"
             ."<td class=\"align-middle\">Nama</td>"
             ."<td class=\"align-middle\">:</td>"
             ."<td class=\"align-middle\">".$val->nama_siswa."</td>"
@@ -176,7 +174,7 @@ class RegisterController extends Controller
     {
         $data = "<html>"
             ."<head>"
-            ."<link href=\"".asset('public/theme/sb-admin/vendor/bootstrap/css/bootstrap.min.css')."\" rel=\"stylesheet\">"
+            ."<link href=\"".asset('theme/sb-admin/vendor/bootstrap/css/bootstrap.min.css')."\" rel=\"stylesheet\">"
             ."</head>"
             ."<body>"
             ."<div class='container'>"

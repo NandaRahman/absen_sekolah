@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/sms/test', 'SMSController@smsGateway')->name("sms.coba");
 //Global Route
 Route::get('/welcome', "WelcomeController@index")->name("welcome");
+Route::post('/saran', "SaranController@store")->name("saran.add");
+Route::get('penngumuman','PengumumanController@index')->name('pengumuman');
+
+
+Route::get('admin/saran/delete/{id}', "Admin\SaranController@destroy")->name("admin.saran.delete");
+Route::get('admin/saran', "Admin\SaranController@index")->name("admin.saran");
 
 Route::get('/sekolah/pendaftaran', 'RegisterController@index')->name("pendaftaran");
 Route::post('/sekolah/pendaftaran', 'RegisterController@create')->name("pendaftaran");
@@ -39,6 +45,11 @@ Route::post('user/laporan/data','User\LaporanController@tabel')->name('user.lapo
 //Admin Route
 Route::get('admin/penerimaan','Admin\PenerimaanController@index')->name('admin.penerimaan');
 
+Route::get('admin/penngumuman','Admin\PengumumanController@index')->name('admin.pengumuman');
+Route::post('admin/penngumuman/store','Admin\PengumumanController@store')->name('admin.pengumuman.store');
+Route::post('admin/penngumuman/update','Admin\PengumumanController@update')->name('admin.pengumuman.update');
+Route::get('admin/penngumuman/delete/{id}','Admin\PengumumanController@destroy')->name('admin.pengumuman.delete');
+
 Route::get('admin/sekolah','Admin\SekolahController@index')->name('admin.sekolah');
 Route::get('admin/sekolah/tutup','Admin\SekolahController@close')->name('admin.sekolah.tutup');
 Route::get('admin/sekolah/buka','Admin\SekolahController@open')->name('admin.sekolah.buka');
@@ -58,13 +69,14 @@ Route::get('admin/siswa','Admin\SiswaController@index')->name('admin.siswa');
 Route::post('admin/siswa/kelas','Admin\SiswaController@editKelas')->name('admin.siswa.kelas');
 Route::get('admin/siswa/hapus/{id?}','Admin\SiswaController@destroy')->name('admin.siswa.hapus');
 Route::post('admin/siswa/edit','Admin\SiswaController@update')->name('admin.siswa.edit');
+Route::post('admin/siswa/cetak', 'Admin\SiswaController@get_pdf')->name("admin.siswa.cetak");
 
 Route::get('admin/penerimaan','Admin\PenerimaanController@index')->name('admin.penerimaan');
 Route::get('admin/penerimaan/hapus/{id?}','Admin\PenerimaanController@destroy')->name('admin.penerimaan.hapus');
 Route::get('admin/penerimaan/terima/{id?}','Admin\PenerimaanController@accept')->name('admin.penerimaan.terima');
 Route::post('admin/penerimaan/edit','Admin\PenerimaanController@update')->name('admin.penerimaan.edit');
 
-Route::get('admin/absensi','Admin\AbsenController@index')->name('admin.absensi');
+Route::get('admin/laporan','Admin\AbsenController@index')->name('admin.absensi');
 Route::get('admin/laporan/grafik','Admin\AbsenController@grafik')->name('admin.absensi.grafik');
 Route::post('admin/laporan/data','Admin\AbsenController@tabel')->name('admin.absensi.data');
 

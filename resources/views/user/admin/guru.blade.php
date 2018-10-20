@@ -31,8 +31,8 @@
                         @if(!empty($guru))
                             @foreach($guru as $val)
                                 <tr class="odd gradeX">
-                                    <td class="text-center"><img height="100px" src="{{asset('public/galeri/foto/guru')}}/{{$val->foto}}" alt="{{asset('public/galeri/foto/guru')}}/{{$val->foto}}"></td>
-                                    <td>{{$val->nomor_pegawai}}</td>
+                                    <td class="text-center"><img height="100px" src="{{asset('galeri/foto/guru')}}/{{$val->foto}}" alt="{{asset('galeri/foto/guru')}}/{{$val->foto}}"></td>
+                                    <td>@if(empty($val->nomor_pegawai))N/A @else {{$val->nomor_pegawai}} @endif</td>
                                     <td>{{$val->getRelation('user')->nama}}</td>
                                     <td>{{$val->getRelation('user')->email}}</td>
                                     <td>{{$val->getRelation('user')->token_first_login}}</td>
@@ -61,9 +61,9 @@
                 <div class="panel-body">
                     <form action="{{route('admin.guru')}}" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label class="control-label col-sm-12" for="nomor_pegawai">Nomor Pegawai</label>
+                            <label class="control-label col-sm-12" for="nomor_pegawai">Nomor Pegawai <span style="color: green; font-size: 10px">*tidak wajib</span></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" name="nomor_pegawai" id="nomor_pegawai" placeholder="Masukan Nama Lengkap" required>
+                                <input type="text" class="form-control" name="nomor_pegawai" id="nomor_pegawai" placeholder="Masukan Nama Lengkap">
                             </div>
                         </div>
                         <div class="form-group">

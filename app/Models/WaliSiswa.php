@@ -32,7 +32,7 @@ class WaliSiswa extends Model
      * @var array
      */
     protected $fillable = [
-        'siswa', 'nama', 'alamat', 'telepon', 'kategori',
+        'siswa', 'nama', 'alamat', 'kategori',
         "tempat_lahir","tanggal_lahir","kebangsaan","agama","pendidikan_terakhir","pekerjaan"
     ];
 

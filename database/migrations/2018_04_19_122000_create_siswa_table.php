@@ -16,11 +16,12 @@ class CreateSiswaTable extends Migration
         Schema::create('siswa', function (Blueprint $table) {
             $table->increments('id');
             $table->string("nomor_pelajar",20)->nullable();
-            $table->string("nomor_akta_kelahiran", 10)->nullable();
+            $table->string("nomor_akta_kelahiran", 11)->nullable();
             $table->string("nama",20);
             $table->string("alamat",20);
             $table->string("jenis_kelamin",1);
             $table->string("tempat_lahir", 30);
+            $table->string("telepon",20)->nullable();
             $table->date("tanggal_lahir");
             $table->string("kebangsaan", 3);
             $table->string("agama", 100);

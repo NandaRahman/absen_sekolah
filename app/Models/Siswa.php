@@ -46,7 +46,7 @@ class Siswa extends Model
      */
     protected $fillable = [
         'nomor_pelajar', 'nama','alamat','kelas','status', 'foto',
-        "jenis_kelamin","tempat_lahir","tanggal_lahir","kebangsaan",
+        "jenis_kelamin","tempat_lahir","tanggal_lahir","kebangsaan",'telepon','nomor_akta_kelahiran',
         "agama","anak_ke","status_anak","jumlah_saudara","siswa_pindahan_baru","ukuran_sepatu"
 
     ];

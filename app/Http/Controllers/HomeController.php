@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
@@ -31,7 +32,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user/home');
+        if (Auth::user()->hasRole('admin')){
+            return redirect()->route('admin.absensi');
+        }else{
+            return redirect()->route('user.laporan');
+        }
     }
 
     public function welcome()

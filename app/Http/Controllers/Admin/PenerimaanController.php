@@ -13,6 +13,13 @@ use App\Http\Controllers\Controller;
 
 class PenerimaanController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        date_default_timezone_set('Asia/Jakarta');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -80,14 +87,6 @@ class PenerimaanController extends Controller
      */
     public function update(Request $request)
     {
-        Siswa::where("id",$request->id)->update([
-            'nama'=>$request->nama,
-            'alamat'=>$request->alamat,
-            'kelas'=>$request->kelas,
-            'status'=>$request->status,
-        ]);
-        return back();
-
         //
     }
     /**

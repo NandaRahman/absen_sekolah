@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Guru;
-use App\Models\Kelas;
+use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class KelasController extends Controller
+class PengumumanController extends Controller
 {
     public function __construct()
     {
@@ -24,11 +23,8 @@ class KelasController extends Controller
      */
     public function index()
     {
-        return view('user/admin/kelas')
-            ->with('kelas',Kelas::with('guru')->get())
-            ->with('guru',Guru::with('user')->get())
-            ->with('wali_kelas',Guru::with('user')->whereDoesntHave('kelas')->get());
-
+        return view('user/admin/pengumuman')
+            ->with('pengumuman',Pengumuman::all());
     }
 
     /**
@@ -36,14 +32,9 @@ class KelasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        Kelas::create([
-            "wali_kelas" => $request->wali_kelas,
-            "kelas" => $request->kelas,
-            "keterangan" => $request->keterangan
-        ]);
-        return back();
+        //
     }
 
     /**
@@ -54,7 +45,8 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pengumuman::create($request->all());
+        return back();
     }
 
     /**
@@ -76,7 +68,6 @@ class KelasController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -88,11 +79,8 @@ class KelasController extends Controller
      */
     public function update(Request $request)
     {
-        Kelas::where("id",$request->id)->update([
-            "wali_kelas"=>$request->guru
-        ]);
+        Pengumuman::where('id',$request->id)->update($request->all());
         return back();
-        //
     }
 
     /**
@@ -103,8 +91,7 @@ class KelasController extends Controller
      */
     public function destroy($id)
     {
-        Kelas::where("id", $id)->delete();
+        Pengumuman::where('id',$id)->delete();
         return back();
-        //
     }
 }
