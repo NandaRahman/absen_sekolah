@@ -14,8 +14,6 @@ class CreateKelasReferenceTable extends Migration
     public function up()
     {
         Schema::table('kelas', function (Blueprint $table) {
-            $table->foreign('wali_kelas')->references('id')->on('guru')
-                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
+use App\Models\Pengumuman;
 use App\Models\Sekolah;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
@@ -33,10 +34,12 @@ class WelcomeController extends Controller
             "guru"=>Guru::all()->count(),
             "lulusan"=>Siswa::all()->where("status",3)->count()
         ];
+
         return view('welcome')
             ->with("sekolah",Sekolah::all()->first())
             ->with("guru",Guru::all())
             ->with("siswa",Siswa::all())
+            ->with('pengumuman',Pengumuman::all())
             ->with('jumlah',json_decode(json_encode($jumlah)));
     }
 

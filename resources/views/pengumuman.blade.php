@@ -6,18 +6,15 @@
 ============================-->
 
     <main id="main">
-        <section id="hero" style="height: 100px;">
-        </section>
-        <section id="form-school">
-            <div class="container wow fadeIn">
-                <div class="section-header">
-                    <h3 class="section-title">Pengumuman Sekolah.</h3>
-                </div>
+        <section id="hero" style="max-height: 300px">
+            <div class="hero-container">
+                <h1>Pengumuman Sekolah</h1>
+                <h2>Informasi dan pengumuman seputar sekolah</h2>
             </div>
         </section>
         @if(!empty($pengumuman))
-            <section id="form-school" style="background: white">
-                <div class="container wow fadeIn" >
+            <section id="form-school" >
+                <div class="container wow fadeIn"  style="overflow-y: scroll; min-height:500px;max-height:1500px;">
                     @foreach($pengumuman as $val)
                         <div class="card">
                             <div class="card-body">

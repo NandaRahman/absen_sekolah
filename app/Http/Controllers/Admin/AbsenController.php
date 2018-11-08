@@ -71,6 +71,7 @@ class AbsenController extends Controller
                 SUM(CASE WHEN (status=3) THEN 1 ELSE 0 END) AS sakit,
                 SUM(CASE WHEN (status=4) THEN 1 ELSE 0 END) AS ijin')
             ->groupBy('DAY(absen_buka)')
+            ->orderBy('DAY(absen_buka)')
             ->get();
         return response()->json([
             'alpha'=>[$this->getAlpha($absen)],

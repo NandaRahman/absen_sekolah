@@ -14,8 +14,7 @@ class CreateSiswaReferenceTable extends Migration
     public function up()
     {
         Schema::table('siswa', function (Blueprint $table) {
-            $table->foreign('kelas')->references('id')->on('kelas')
-                ->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('kelas')->references('id')->on('kelas');
             $table->foreign('status')->references('id')->on('status_siswa')
                 ->onUpdate('cascade')->onDelete('cascade');
         });

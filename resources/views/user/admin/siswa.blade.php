@@ -140,6 +140,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label class="control-label col-sm-12" for="telepon">Telepon</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" name="siswa[telepon]" id="telepon" value="{{$val->alamat}}" placeholder="Jl.Nama Jalan XII/24, Kota" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label class="control-label col-sm-12" for="alamat_siswa">Alamat</label>
                                             <div class="col-sm-12">
                                                 <input type="text" class="form-control" name="siswa[alamat]" id="alamat_siswa" value="{{$val->alamat}}" placeholder="Jl.Nama Jalan XII/24, Kota" required>

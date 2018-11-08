@@ -58,7 +58,7 @@ class MainTableSeeder extends Seeder
             'keterangan' => "",
         ]);
         StatusAbsensi::create([
-            'status' => "Ijin",
+            'status' => "Izin",
             'keterangan' => "",
         ]);
 

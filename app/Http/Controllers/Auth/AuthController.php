@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Guru;
+use App\Models\Kelas;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -66,6 +68,14 @@ class AuthController extends Controller
 
     protected function authenticated(Request $request, User $user){
         //put your thing in here
+        if ($user->hasRole("user")){
+            $guru = Guru::where('user',$user->id)->first();
+            $kelas = Kelas::where('wali_kelas',$guru->id)->get();
+            if (sizeof($kelas)<1){
+                $request->session()->flush();
+                return redirect()->back()->withErrors(['req'=>'Guru harus memiliki kelas agar bisa login']);
+            }
+        }
         if($user->hasRole("user") && $user->token_first_login != null){
             return redirect()->route('user.password_reset');
         }

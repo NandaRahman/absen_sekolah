@@ -60,12 +60,12 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <form action="{{route('admin.guru')}}" method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label class="control-label col-sm-12" for="nomor_pegawai">Nomor Pegawai <span style="color: green; font-size: 10px">*tidak wajib</span></label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" name="nomor_pegawai" id="nomor_pegawai" placeholder="Masukan Nama Lengkap">
-                            </div>
-                        </div>
+                        {{--<div class="form-group">--}}
+                            {{--<label class="control-label col-sm-12" for="nomor_pegawai">Nomor Pegawai <span style="color: green; font-size: 10px">*tidak wajib</span></label>--}}
+                            {{--<div class="col-sm-12">--}}
+                                {{--<input type="text" class="form-control" name="nomor_pegawai" id="nomor_pegawai" placeholder="Masukan Nama Lengkap">--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                         <div class="form-group">
                             <label class="control-label col-sm-12" for="nama">Nama Lengkap</label>
                             <div class="col-sm-12">

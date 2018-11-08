@@ -1,18 +1,11 @@
 @extends('layouts.regna')
 @section('content')
 
-    <!--==========================
-  Hero Section
-============================-->
-
     <main id="main">
-        <section id="hero" style="height: 100px;">
-        </section>
-        <section id="form-school">
-            <div class="container wow fadeIn">
-                <div class="section-header">
-                    <h3 class="section-title">Form ini dibuka oleh pihak sekolah apabila sidah pada waktunya.</h3>
-                </div>
+        <section id="hero"  style="max-height: 300px">
+            <div class="hero-container">
+                <h1>Form Pendaftaran</h1>
+                <h2>Form ini diisi oleh orang tua siswa yang mendaftarkan anaknya sekolah</h2>
             </div>
         </section>
         @if(!empty($sekolah->buka_penerimaan))
@@ -123,7 +116,7 @@
                                             </div>
                                         </div>
                                         <div  class="form-group">
-                                            <label for="akta_siswa" class="control-label col-sm-12">Nomor Kelahiran (Dilihat Di Akta Kelahiran)<br><span style="font-size: 12px; color: red">Jika tidak ada download <a href="#">formulir ini</a></span></label>
+                                            <label for="akta_siswa" class="control-label col-sm-12">Nomor Kelahiran (Dilihat Di Akta Kelahiran)<br><span style="font-size: 12px; color: red">Jika tidak ada download <a href="{{asset('galeri/file/pernyataan.docx')}}" target="_blank">formulir ini</a></span></label>
                                             <div id="akta_siswa" class="col-lg-12 form-inline">
                                                 <input type="number" name="akta_1" class="form-control four-input col-lg-2 col-md-3 col-sm-4" placeholder="20xx">
                                                 <div class=" col-lg-1 col-md-1 col-sm-1">/</div>
@@ -149,6 +142,7 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="card">
@@ -231,6 +225,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <div class="col-md-4">
                                 <div class="card">
                                     <div class="card-body">
@@ -312,6 +307,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <div class="col-md-4">
                                 <div class="card">
                                     <div class="card-body">
@@ -400,6 +396,7 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
                         <div style="margin-top: 1em;">
                             <button type="submit" class="btn btn-primary btn-lg btn-block">Daftarkan</button>
                         </div>
@@ -461,13 +458,13 @@
                         }, 1000);
                         if (data.status){
                             pdf = data.data;
+                            $("#content").html(pdf);
                             setTimeout(function() {
                                 $("#preview").modal({
                                     backdrop: "static", //remove ability to close modal with click
                                     keyboard: false //remove option to close with keyboard
                                 });
                             }, 1100);
-                            $("#content").html(pdf)
                         }else{
                             alert("Gagal : "+data.message);
                         }
@@ -477,13 +474,11 @@
                     processData: false
                 });
             });
-            $("#download_pdf").click(function() {
-                var formData = new FormData();
-                formData.append("data",pdf);
+            $("#content").on('click','#download_pdf',function() {
+                console.log("{{route("pendaftaran.cetak")}}/"+$(this).data('id'));
                 $.ajax({
-                    url: "{{route("pendaftaran.cetak")}}",
-                    type: 'POST',
-                    data: formData,
+                    url: "pendaftaran/"+$(this).data('id'),
+                    type: 'GET',
                     success:function(data){
                         alert("File Downloaded")
                     },
@@ -540,17 +535,13 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="preview" tabindex="-1" role="dialog">
+    <div class="modal fade" id="preview" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Bukti Pendaftaran</h5>
+                    <h5 class="text-center modal-title">Pendaftaran Berhasil</h5>
                 </div>
                 <div class="modal-body" id="content">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="download_pdf"><span><i class="fa fa-download"></i>Download</span></button>
-                    <button type="button" class="btn btn-danger"><a class="btn-link" href="{{route('welcome')}}">Kembali</a></button>
                 </div>
             </div>
         </div>

@@ -69,7 +69,6 @@ class GuruController extends Controller
     public function  userValidation($request){
         $validator = Validator::make($request->all(), [
             'email'=> 'required|unique:user',
-            'nomor_pegawai'=> 'required|unique:guru',
         ]);
         if ($validator->fails()) {
             return false;

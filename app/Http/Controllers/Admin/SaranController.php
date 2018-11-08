@@ -25,7 +25,7 @@ class SaranController extends Controller
     public function index()
     {
         return view('user/admin/saran')
-            ->with('saran',Saran::all());
+            ->with('saran',Saran::orderBy('created_at','desc')->get());
     }
 
     /**

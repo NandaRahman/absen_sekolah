@@ -11,23 +11,35 @@
 |
 */
 
+use App\Models\Siswa;
 use Illuminate\Support\Facades\Route;
+use Milon\Barcode\DNS1D;
+use Milon\Barcode\DNS2D;
 
-Route::get('/sms/test', 'SMSController@smsGateway')->name("sms.coba");
+Route::get('barcode/test', function (){
+    echo (new Milon\Barcode\DNS2D)->getBarcodeSVG(\route('welcome'), "PDF417")."<br/>";
+    echo (new Milon\Barcode\DNS2D)->getBarcodeSVG(\route('welcome'), "DATAMATRIX")."<br/>";
+    echo (new Milon\Barcode\DNS2D)->getBarcodeSVG(\route('pendaftaran.lihat'), "QRCODE")."<br/>";
+});
+
+Route::get('/sms/cron', 'SMSController@index')->name("sms.cron");
 //Global Route
-Route::get('/welcome', "WelcomeController@index")->name("welcome");
-Route::post('/saran', "SaranController@store")->name("saran.add");
+Route::get('welcome', "WelcomeController@index")->name("welcome");
+Route::get('saran', "SaranController@index")->name("saran");
+Route::post('saran', "SaranController@store")->name("saran.add");
 Route::get('penngumuman','PengumumanController@index')->name('pengumuman');
 
 
 Route::get('admin/saran/delete/{id}', "Admin\SaranController@destroy")->name("admin.saran.delete");
 Route::get('admin/saran', "Admin\SaranController@index")->name("admin.saran");
 
-Route::get('/sekolah/pendaftaran', 'RegisterController@index')->name("pendaftaran");
-Route::post('/sekolah/pendaftaran', 'RegisterController@create')->name("pendaftaran");
-Route::post('/sekolah/pendaftaran/cetak', 'RegisterController@pdf')->name("pendaftaran.cetak");
+Route::get('sekolah/pendaftaran', 'PendaftaranController@index')->name("pendaftaran");
+Route::post('sekolah/pendaftaran', 'PendaftaranController@create')->name("pendaftaran");
+Route::get('sekolah/pendaftaran/{id}', 'PendaftaranController@downloadFile')->name("pendaftaran.cetak");
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('pendaftaran/{id}', 'PendaftaranController@dataPreview')->name("pendaftaran.lihat");
+
+Route::get('home', 'HomeController@index')->name('home');
 
 //User Route
 Route::get('user/reset-password','Auth\ResetPasswordController@index')->name('user.password_reset');

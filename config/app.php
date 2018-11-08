@@ -155,6 +155,10 @@ return [
          */
         Zizaco\Entrust\EntrustServiceProvider::class,
 
+        /*
+         * Milon Barcode
+         */
+        Milon\Barcode\BarcodeServiceProvider::class,
     ],
 
     /*
@@ -204,6 +208,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'AM'        => Deisss\Automodel\Providers\AutomodelServiceProvider::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
+        'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
     ],
 
 ];

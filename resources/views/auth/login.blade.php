@@ -8,9 +8,18 @@
                 <div class="card-header">Login</div>
 
                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8">
+                            @if ($errors->has('req'))
+                                <div class="alert alert-danger">
+                                    <strong>{{ $errors->first('req') }}</strong>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
-
                         <div class="form-group row">
                             <label for="email" class="col-sm-4 col-form-label text-md-right">Email</label>
 
@@ -37,7 +46,6 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="checkbox">

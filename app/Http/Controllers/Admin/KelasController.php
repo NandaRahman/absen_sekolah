@@ -38,11 +38,14 @@ class KelasController extends Controller
      */
     public function create(Request $request)
     {
-        Kelas::create([
-            "wali_kelas" => $request->wali_kelas,
+        $kelas = [
             "kelas" => $request->kelas,
             "keterangan" => $request->keterangan
-        ]);
+        ];
+        if (empty($request->wali_kelas)){
+            $kelas = $kelas + ["wali_kelas" => $request->wali_kelas];
+        }
+        Kelas::create($kelas);
         return back();
     }
 

@@ -2,16 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title>Siakad SD Wonokusumo || {{ Request::segment(1) }}</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
 
     <!-- Favicons -->
     <link href="{{asset("galeri/foto/logo.jpeg")}}" rel="icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
     <link href="{{asset("theme/regna/lib/bootstrap/css/bootstrap.min.css")}}" rel="stylesheet">
@@ -22,10 +20,16 @@
 
     <!-- Main Stylesheet File -->
     <link href="{{asset("theme/regna/css/style.css")}}" rel="stylesheet">
-    <script src="https://maps.google.com/maps/api/js?key=AIzaSyD5FyJppfgYyWXDaH-fd_77bt23DEKLwG4"></script>
 
     <!-- DataTables CSS -->
     <link href="{{asset('theme/sb-admin/vendor/datatables-plugins/dataTables.bootstrap.css')}}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+    <!-- Custom CSS File -->
+    <link href="{{asset("css/custom.css")}}" rel="stylesheet">
+
+    <!-- JavaScript Libraries -->
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyD5FyJppfgYyWXDaH-fd_77bt23DEKLwG4"></script>
 
     <script src="{{asset("theme/regna/lib/jquery/jquery.min.js")}}"></script>
     <script src="{{asset("theme/regna/lib/jquery/jquery-migrate.min.js")}}"></script>
@@ -45,69 +49,8 @@
     <script src="{{asset("theme/regna/js/main.js")}}"></script>
 
     <!-- DataTables JavaScript -->
-    <script src="{{asset('theme/sb-admin/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('theme/sb-admin/vendor/datatables-plugins/dataTables.bootstrap.min.js')}}"></script>
-    <script src="{{asset('theme/sb-admin/vendor/datatables-responsive/dataTables.responsive.js')}}"></script>
+    <script src="{{asset("js/custom.js")}}"></script>
 
-    <style>
-        input[type=number]::-webkit-inner-spin-button,
-        input[type=number]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        .loader {
-            position: relative;
-            text-align: center;
-            margin: 15px auto 35px auto;
-            z-index: 9999;
-            display: block;
-            width: 80px;
-            height: 80px;
-            border: 10px solid rgba(0, 0, 0, .3);
-            border-radius: 50%;
-            border-top-color: #000;
-            animation: spin 1s ease-in-out infinite;
-            -webkit-animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to {
-                -webkit-transform: rotate(360deg);
-            }
-        }
-
-        @-webkit-keyframes spin {
-            to {
-                -webkit-transform: rotate(360deg);
-            }
-        }
-
-        .table-borderless td,
-        .table-borderless th {
-            border: 0;
-        }
-
-        /** MODAL STYLING **/
-
-        .modal-content {
-            border-radius: 0px;
-            box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.7);
-        }
-
-        .modal-backdrop.show {
-            opacity: 0.75;
-        }
-
-        .loader-txt > p {
-            font-size: 13px;
-            color: #666;
-        }
-        .loader-txt > p > small{
-            font-size: 11.5px;
-            color: #999;
-        }
-
-    </style>
     <!-- =======================================================
       Theme Name: Regna
       Theme URL: https://bootstrapmade.com/regna-bootstrap-onepage-template/
@@ -130,13 +73,10 @@ Header
                     <ul>
                         <li><a href="{{route("pendaftaran")}}">Pendaftaran Sekolah</a></li>
                         <li><a href="{{route("pengumuman")}}">Info & Pengumuman</a></li>
+                        <li><a href="{{route("saran")}}">Masukan Saran</a></li>
                     </ul>
                 </li>
-                <li class="menu-has-children"><a style="color: white; cursor: pointer">Login</a>
-                    <ul>
-                        <li><a href="{{route("login")}}">Guru Pengajar</a></li>
-                    </ul>
-                </li>
+                <li><a href="{{route("login")}}">Login</a></li>
             </ul>
         </nav><!-- #nav-menu-container -->
     </div>
@@ -158,15 +98,6 @@ Header
         <div class="copyright">
             &copy; Copyright <strong>Regna</strong>. All Rights Reserved
         </div>
-        <div class="credits">
-            <!--
-              All the links in the footer should remain intact.
-              You can delete the links only if you purchased the pro version.
-              Licensing information: https://bootstrapmade.com/license/
-              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
-            -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
     </div>
 </footer><!-- #footer -->
 
@@ -183,10 +114,8 @@ Header
     </div>
 </div>
 
-<script src="{{asset("js/custom.js")}}"></script>
-
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-<!-- JavaScript Libraries -->
+
 </body>
 </html>

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Absen;
+use App\Models\Siswa;
 use App\Models\StatusAbsensi;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Nexmo\Client\Exception\Exception;
 use Nexmo\Client\Exception\Server;
 
@@ -22,10 +24,41 @@ class SMSController extends Controller
      */
     public function index()
     {
-        $status = StatusAbsensi::all()->where('status','Alpha')->first();
-        $absen = Absen::where('status', $status->id)
-            ->whereRaw("abs(timestampdiff(day, \"absen_buka\", NOW()))<=6")
-            ->get();
+        $arr = [];
+        $siswa = Siswa::all()->where('status',2);
+        foreach ($siswa as $val){
+            $temp = [];
+            $temp['nama'] = $val->nama;
+            $temp['telepon'] = $val->telepon;
+            $temp['data'] = "Laporan Hasil Absensi Minggu Ini".PHP_EOL."Nama Siswa : {$val->nama}".PHP_EOL;
+            $absen = DB::table('absen')
+                ->join('status_absensi','absen.status','=','status_absensi.id')
+                ->whereRaw('YEARWEEK(absen_buka)=YEARWEEK(NOW())')
+                ->where('siswa',$val->id)
+                ->selectRaw('status_absensi.status,DATE_FORMAT(absen_buka, "%d-%m-%Y") as date')
+                ->get();
+            foreach ($absen as $val_absen){
+                $temp['data'] .= PHP_EOL."{$val_absen->date} : {$val_absen->status}";
+            }
+            $temp['data'] .= PHP_EOL.PHP_EOL."Dikirim Pada Tanggal : ".date('Y-m-d');
+            array_push($arr,$temp);
+        }
+        foreach ($arr as $val){
+            $telepon = $this->escapeFirstNumber($val['telepon']);
+            if(!empty($telepon)){
+                $this->smsGateway($telepon, "SD Wonokususmo Jaya" , $val['data']);
+            }
+        }
+    }
+
+
+    public function escapeFirstNumber($number){
+        $first = substr($number, 0, 1);
+        $last = substr($number, 1);
+        if (intval($first) == 0) {
+            $first = "62";
+        }
+        return $first.$last;
     }
 
     public function smsGateway($to, $from, $text){
@@ -37,13 +70,13 @@ class SMSController extends Controller
                 'from'   => $from,
                 'text'   => $text
             ]);
-            dd($message);
+            return $message;
         } catch (\Nexmo\Client\Exception\Request $e) {
-            dd($e);
+            return $e;
         } catch (Server $e) {
-            dd($e);
+            return $e;
         } catch (Exception $e) {
-            dd($e);
+            return $e;
         }
     }
 

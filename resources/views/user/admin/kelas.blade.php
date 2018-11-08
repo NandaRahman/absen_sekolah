@@ -34,8 +34,9 @@
                                     <td>{{$val->kelas}}</td>
                                     <td>
                                         <select class="form-control col-11" onchange="update(this,'{{$val->id}}')" name="guru">
+                                            <option>-- Tidak Ada --</option>
                                         @foreach($guru as $dat)
-                                            <option value="{{$dat->id}}" @if($val->getRelation('guru')->id == $dat->id) selected @endif >{{$dat->getRelation('user')->nama}}</option>
+                                            <option value="{{$dat->id}}" @if(isset($val->getRelation('guru')->id)) @if($val->getRelation('guru')->id == $dat->id) selected @endif @endif >{{$dat->getRelation('user')->nama}}</option>
                                         @endforeach
                                         </select>
                                     <td>{{$val->keterangan}}</td>
@@ -67,7 +68,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-12" for="wali_kelas">Wali Kelas</label>
                             <div class="col-sm-12">
-                                <select class="form-control" name="wali_kelas" id="wali_kelas"required>
+                                <select class="form-control" name="wali_kelas" id="wali_kelas">
                                     <option>-- Pilih Wali Kelas --</option>
                                     @if(!empty($wali_kelas))
                                         @foreach($wali_kelas as $val)

@@ -1,18 +1,16 @@
 @extends('layouts.regna')
 @section('content')
 
-<!--==========================
-  Hero Section
-============================-->
-<section id="hero">
-    <div class="hero-container">
-        <h1>Selamat Datang Di SD Wonokusumo</h1>
-        <h2>We are team of talanted designers making websites with Bootstrap</h2>
-        <a href="#about" class="btn-get-started">Get Started</a>
-    </div>
-</section><!-- #hero -->
-
 <main id="main">
+    <!--==========================
+      Hero Section
+    ============================-->
+    <section id="hero">
+        <div class="hero-container">
+            <h1>Selamat Datang Di <br>{{$sekolah->nama}}</h1>
+            <h2>Membentuk siswa yang berprestasi, terampil, dan berakhlak mulia</h2>
+        </div>
+    </section><!-- #hero -->
 
     <!--==========================
       About Us Section
@@ -37,7 +35,7 @@
     <section id="facts">
         <div class="container">
             <div class="section-header">
-                <h3 class="section-title">Fakta</h3>
+                <h3 class="section-title">Riwayat Sekolah</h3>
                 <p class="section-description">Lulusan dan jumlah karyawan sekolah saat ini</p>
             </div>
             <div class="row counters">
@@ -67,43 +65,35 @@
     <section id="team">
         <div class="container">
             <div class="section-header">
-                <h3 class="section-title">Team</h3>
-                <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                <h3 class="section-title">Guru</h3>
+                <p class="section-description">Daftar guru pengajar di SD Wonokusumo Jaya</p>
             </div>
             <div class="row">
                 @foreach($guru as $val)
                     <div class="col-lg-2 col-md-4">
                         <div class="member">
-                            <div class="pic" title="{{asset('galeri/foto/guru')}}/{{$val->foto}}"><img src="{{asset('galeri/foto/guru')}}/{{$val->foto}}" alt="{{asset('galeri/foto/guru')}}/{{$val->foto}}"></div>
+                            <div class="pic" style="height: 150px" title="{{asset('galeri/foto/guru')}}/{{$val->foto}}"><img src="{{asset('galeri/foto/guru')}}/{{$val->foto}}" alt="{{asset('galeri/foto/guru')}}/{{$val->foto}}"></div>
                             <h4>{{ $val->user()->first()->nama }}</h4>
                             <span>{{ $val->user()->first()->email }}</span>
-                            <div class="social">
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                                <a href=""><i class="fa fa-facebook"></i></a>
-                                <a href=""><i class="fa fa-google-plus"></i></a>
-                                <a href=""><i class="fa fa-linkedin"></i></a>
-                            </div>
                         </div>
                     </div>
                 @endforeach
-
             </div>
-
         </div>
     </section><!-- #team -->
+
 
     <!--==========================
       Contact Section
     ============================-->
-    <section id="contact">
+    <section id="contact" style="background: white">
         <div class="container">
             <div class="section-header">
-                <h3 class="section-title">Contact</h3>
-                <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                <h3 class="section-title">Hubungi Kami</h3>
+                <p class="section-description">Informasi kontak sekolah</p>
             </div>
         </div>
 
-        <div id="google-map" data-latitude="-7.226238" data-longitude="112.755061"></div>
         <div class="container">
             <div class="row justify-content-center">
 
@@ -130,29 +120,9 @@
                             <p>{{date('d M Y',strtotime($sekolah->didirikan))}}</p>
                         </div>
                     </div>
-
-                    <div class="social-links">
-                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                    </div>
-
                 </div>
-
-                <div class="col-lg-5 col-md-8">
-                    <div class="form">
-                        <form action="{{route('saran.add')}}" method="post">
-                            <div class="form-group">
-                                <input type="text" name="nama" class="form-control" id="name" placeholder="Nama Anda" data-msg="Masukan minimal 4 karakter" required/>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="saran" rows="5" placeholder="Saran Anda" required></textarea>
-                            </div>
-                            <div class="text-center"><button type="submit">Kirim Saran</button></div>
-                        </form>
-                    </div>
+                <div class="col-lg-7 col-md-8">
+                    <div id="google-map" data-latitude="-7.226238" data-longitude="112.755061"></div>
                 </div>
 
             </div>

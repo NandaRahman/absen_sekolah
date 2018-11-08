@@ -18,7 +18,7 @@ class PengumumanController extends Controller
     public function index()
     {
         return view('pengumuman')
-            ->with('pengumuman',Pengumuman::all());
+            ->with('pengumuman',Pengumuman::orderBy('created_at', 'desc')->get());
     }
 
     /**
