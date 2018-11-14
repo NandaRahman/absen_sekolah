@@ -57,7 +57,11 @@
                                         {{$val->getRelation('kelas')->kelas }}
                                     </td>
                                     <td>
-                                        {{$val->status_pindahan_baru }}
+                                        {{$val->siswa_pindahan_baru }}
+                                        @if($val->siswa_pindahan_baru != 'baru')
+                                            <br> {{\App\Models\SiswaPindahan::where('siswa',$val->id)->first()->kelas_pindahan}}
+                                            <br> {{\App\Models\SiswaPindahan::where('siswa',$val->id)->first()->nama_sekolah}} - {{\App\Models\SiswaPindahan::where('siswa',$val->id)->first()->tanggal_keluar}}
+                                        @endif
                                     </td>
                                     <td hidden>{{$val->getRelation('kelas')->kelas}}</td>
                                     <td hidden>{{$val->getRelation('status')->status}}</td>
@@ -88,7 +92,7 @@
                             </th>
                             <th hidden>kelas</th>
                             <th hidden>status</th>
-                            <th class="text-center"><button type="submit" form="kelas-update" class="btn btn-primary"><i class="fa fa-edit" style="color: white"></i> Ubah Semua </button></th>
+                            <th class="text-center"><button type="submit" form="kelas-update" class="btn btn-primary"><i class="fa fa-edit" style="color: white"></i> Ubah Kelas </button></th>
                         </tr>
                         </tfoot>
                     </table>

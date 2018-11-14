@@ -37,6 +37,9 @@
     <!-- DataTables Responsive CSS -->
     <link href="{{asset('theme/sb-admin/vendor/datatables-responsive/dataTables.responsive.css')}}" rel="stylesheet">
 
+    <!-- Custom CSS File -->
+    <link href="{{asset("css/custom.css")}}" rel="stylesheet">
+
     <script src="{{asset('theme/sb-admin/vendor/jquery/jquery.min.js')}}"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -136,6 +139,18 @@
     <style>
         .dataTables_filter, .dataTables_grouping { display: none; }
     </style>
+    <div class="modal fade" id="loadMe" tabindex="-1" role="dialog" aria-labelledby="loadMeLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="loader"></div>
+                    <div class="loader-txt">
+                        <p>Mohon tunggu beberapa saat.. <br><br><small>Kami sedang memproses perintah anda... #love</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </main>
 </body>

@@ -117,13 +117,16 @@
             var formData = new FormData();
             formData.append("guru",data.value);
             formData.append("id",id);
-            console.log(data.value);
+            $("#loadMe").modal({
+                backdrop: "static", //remove ability to close modal with click
+                keyboard: false //remove option to close with keyboard
+            });
             $.ajax({
                 url: "{{route('admin.kelas.update')}}",
                 type: 'POST',
                 data: formData,
                 success:function(data){
-                    alert("updated");
+                    $("#loadMe").modal("hide");
                 },
                 cache: false,
                 contentType: false,

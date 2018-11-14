@@ -6,6 +6,8 @@ use App\Models\Absen;
 use App\Models\Guru;
 use App\Models\StatusAbsensi;
 use App\Models\User;
+use Exception;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -62,12 +64,18 @@ class AbsenController extends Controller
     }
 
     public function updateAbsen(Request $request){
-        Absen::where("id",$request->id)
-            ->update(['status'=>$request->status]);
-        return response()->json([
-            "status"=>"Success",
-            "message"=>"Update Berhasil",
-        ]);
+        try{
+            Absen::where("id",$request->id)
+                ->update(['status'=>$request->status]);
+            return response()->json([
+                "status"=>true,
+                "message"=>"Update Berhasil",
+            ]);
+        }catch (QueryException $e){
+            return response()->json(['status'=>false, 'message'=> $e->getMessage()]);
+        }catch (Exception $e) {
+            return response()->json(['status'=>false, 'message'=> $e->getMessage()]);
+        }
     }
 
     public function check(){

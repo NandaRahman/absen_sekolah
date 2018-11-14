@@ -13,7 +13,9 @@
         "milon/barcode": "^5.1",
         "mpdf/mpdf": "^7.1",
         "nexmo/client": "@beta",
-        "doctrine/inflector": "1.1.0"
+        "twilio/sdk": "^5.0",
+        "doctrine/inflector": "1.0.0",
+        "aloha/twilio": "^4.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

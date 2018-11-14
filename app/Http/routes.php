@@ -34,6 +34,8 @@ Route::get('admin/saran/delete/{id}', "Admin\SaranController@destroy")->name("ad
 Route::get('admin/saran', "Admin\SaranController@index")->name("admin.saran");
 
 Route::get('sekolah/pendaftaran', 'PendaftaranController@index')->name("pendaftaran");
+Route::get('sekolah/pernyataan', 'PendaftaranController@index_pernyataan')->name("pernyataan");
+Route::post('sekolah/pernyataan', 'PendaftaranController@pernyataanDownload')->name("pernyataan");
 Route::post('sekolah/pendaftaran', 'PendaftaranController@create')->name("pendaftaran");
 Route::get('sekolah/pendaftaran/{id}', 'PendaftaranController@downloadFile')->name("pendaftaran.cetak");
 

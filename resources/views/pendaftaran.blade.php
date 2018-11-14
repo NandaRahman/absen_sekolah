@@ -116,7 +116,7 @@
                                             </div>
                                         </div>
                                         <div  class="form-group">
-                                            <label for="akta_siswa" class="control-label col-sm-12">Nomor Kelahiran (Dilihat Di Akta Kelahiran)<br><span style="font-size: 12px; color: red">Jika tidak ada download <a href="{{asset('galeri/file/pernyataan.docx')}}" target="_blank">formulir ini</a></span></label>
+                                            <label for="akta_siswa" class="control-label col-sm-12">Nomor Kelahiran (Dilihat Di Akta Kelahiran)<br><span style="font-size: 12px; color: red">Jika tidak ada download <a href="{{route('pernyataan')}}" target="_blank">formulir ini</a></span></label>
                                             <div id="akta_siswa" class="col-lg-12 form-inline">
                                                 <input type="number" name="akta_1" class="form-control four-input col-lg-2 col-md-3 col-sm-4" placeholder="20xx">
                                                 <div class=" col-lg-1 col-md-1 col-sm-1">/</div>

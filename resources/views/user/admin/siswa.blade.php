@@ -90,7 +90,7 @@
                             </th>
                             <th hidden>kelas</th>
                             <th hidden>status</th>
-                            <th class="text-center"><button type="submit" form="kelas-update" class="btn btn-primary"><i class="fa fa-edit" style="color: white"></i> Ubah Semua </button></th>
+                            <th class="text-center"><button type="submit" form="kelas-update" class="btn btn-primary"><i class="fa fa-edit" style="color: white"></i> Ubah Kelas </button></th>
                         </tr>
                         </tfoot>
                     </table>
@@ -346,7 +346,7 @@
                     var table = this.api();
                     var data = this.api().column(6);
                     var menu = $('<select class="form-control filter-menu"><option value="">-- Kelas --</option></select>')
-                        .appendTo('#menu')
+                        .appendTo('#kelas')
                         .on('change', function() {
                             var val = $(this).val();
                             data.search(val ? '^' + $(this).val() + '$' : val, true, false).draw();

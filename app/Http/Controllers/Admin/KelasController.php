@@ -28,7 +28,6 @@ class KelasController extends Controller
             ->with('kelas',Kelas::with('guru')->get())
             ->with('guru',Guru::with('user')->get())
             ->with('wali_kelas',Guru::with('user')->whereDoesntHave('kelas')->get());
-
     }
 
     /**

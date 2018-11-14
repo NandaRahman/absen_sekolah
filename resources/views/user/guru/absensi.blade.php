@@ -80,12 +80,16 @@
             var formData = new FormData();
             formData.append("id",id);
             formData.append("status",data.value);
+            $("#loadMe").modal({
+                backdrop: "static", //remove ability to close modal with click
+                keyboard: false //remove option to close with keyboard
+            });
             $.ajax({
                 url: "{{route('user.absen.update')}}",
                 type: 'POST',
                 data: formData,
                 success:function(res){
-                    alert("success : "+res.status)
+                    $("#loadMe").modal("hide");
                 },
                 cache: false,
                 contentType: false,

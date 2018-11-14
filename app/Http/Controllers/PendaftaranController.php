@@ -125,6 +125,98 @@ class PendaftaranController extends Controller
         }
     }
 
+    public function index_pernyataan(){
+        return view('pernyataan');
+    }
+
+    public function pernyataanDownload(Request $request){
+        if($request->akte == 1) $akte = 'Ya';
+        else  $akte = 'Tidak';
+        if($request->kk_ortu == 1) $kk_ortu = 'Ya';
+        else  $kk_ortu = 'Tidak';
+        if($request->kk_anak == 1) $kk_anak = 'Ya';
+        else  $kk_anak = 'Tidak';
+        $html =
+            "<html>"
+            ."<head>"
+            ."<link href=\"".asset('theme/sb-admin/vendor/bootstrap/css/bootstrap.min.css')."\" rel=\"stylesheet\">"
+            ."<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">"
+            ."</head>"
+            ."<body>"
+            ."<div class=\"container\">"
+            ."<br/>"
+            ."<div class='text-center'><h3><b>SURAT PERNYATAAN</b></h3></div>"
+            ."<br/>"
+            ."<table width='100%'>"
+            ."<tr>"
+            ."<td class='text-left' style='padding-top: 10px;padding-bottom: 10px' colspan='4'><p>Yang bertanda tangan di bawah ini :</p></td>"
+            ."</tr>"
+            ."<tr>"
+            ."<td class='text-left' width='150px' style='padding-left: 20px'><p>Nama</p></td>"
+            ."<td width='10px'><p style='padding-right: 5px; padding-left: 5px'> : </p></td>"
+            ."<td class='text-left' colspan='2'><p>{$request->nama_wali}</p></td>"
+            ."</tr>"
+            ."<tr>"
+            ."<td class='text-left' width='150px' style='padding-left: 20px'><p >TTL</p></td>"
+            ."<td width='10px'><p style='padding-right: 5px; padding-left: 5px'> : </p></td>"
+            ."<td class='text-left' colspan='2'><p>{$request->ttl_wali}</p></td>"
+            ."</tr>"
+            ."<tr>"
+            ."<td class='text-left' width='150px' style='padding-left: 20px'><p>Jenis Kelamin </p></td>"
+            ."<td width='10px'><p style='padding-right: 5px; padding-left: 5px'> : </p></td>"
+            ."<td class='text-left' colspan='2'><p>{$request->alamat_wali}</p></td>"
+            ."</tr>"
+            ."<tr>"
+            ."<td class='text-left' style='padding-top: 10px;padding-bottom: 10px' colspan='4'><p>Selaku Orang Tua / Wali Murid dari siswa bernama :</p></td>"
+            ."</tr>"
+            ."<tr>"
+            ."<td class='text-left' width='150px' style='padding-left: 20px'><p>Nama</p></td>"
+            ."<td width='10px'><p style='padding-right: 5px; padding-left: 5px'> : </p></td>"
+            ."<td class='text-left' colspan='2'><p>{$request->nama_siswa}</p></td>"
+            ."</tr>"
+            ."<tr>"
+            ."<td class='text-left' width='150px' style='padding-left: 20px'><p >TTL</p></td>"
+            ."<td width='10px'><p style='padding-right: 5px; padding-left: 5px'> : </p></td>"
+            ."<td class='text-left' colspan='2'><p>{$request->ttl_siswa}</p></td>"
+            ."</tr>"
+            ."<tr>"
+            ."<td class='text-left' width='150px' style='padding-left: 20px'><p>Jenis Kelamin </p></td>"
+            ."<td width='10px'><p style='padding-right: 5px; padding-left: 5px'> : </p></td>"
+            ."<td class='text-left' colspan='2'><p>{$request->alamat_siswa}</p></td>"
+            ."</tr>"
+            ."<tr>"
+            ."<td class='text-left' style='padding-top: 10px;padding-bottom: 10px' colspan='4'><p>Menyatakan bahwa anak tersebut di atas belum memiliki kelengkapan administrasi berupa :</p></td>"
+            ."</tr>"
+            ."<tr>"
+            ."<td class='text-left' style='padding-left: 20px' colspan='3'><p>1. Belum memiliki Akte Kelahiran </p></td>"
+            ."<td class='text-left' width='100px'><p>{$akte}</p></td>"
+            ."</tr>"
+            ."<tr>"
+            ."<td class='text-left' style='padding-left: 20px' colspan='3'><p>2. Orang Tua tidak memiliki KK</p></td>"
+            ."<td class='text-left' width='100px'><p>{$kk_ortu}</p></td>"
+            ."</tr>"
+            ."<tr>"
+            ."<td class='text-left' style='padding-left: 20px' colspan='3'><p>3. Orang Tua Memiliki KK namun anak belum dimasukkan kedalam KK</p></td>"
+            ."<td class='text-left' width='100px'><p>{$kk_anak}</p></td>"
+            ."</tr>"
+            ."<tr>"
+            ."<td class='text-left' style='padding-top: 10px;padding-bottom: 10px'  colspan='4'><p>Demikian Surat Pernyataan ini saya buat dengan penuh kesadaran untuk bisa dipergunakan sebagaiman mestinya dan harap bisa dijadikan maklum.</p></td>"
+            ."</tr>"
+            ."</table>"
+            ."<div class='row' style='margin-left: 60%'>"
+            ."<div class='row text-center'>Surabaya, ".date('d M Y')."</div>"
+            ."<div class='row text-center'>Yang membuat pernyataan</div>"
+            ."<div class='row text-left'><div style='padding-top: 20px;padding-bottom: 20px;width: 100px;height: 50px !important;border: 2px solid black;font-size: 10pt'>Materai<br/>6000</div></div>"
+            ."<hr style=\"border-width: 3px;\">"
+            ."</div>"
+            ."</div></body></html>";
+        try {
+            self::makePDF($html, "Pernyataan");
+        } catch (MpdfException $e) {
+        }
+    }
+
+
     private function registerPreview($val,$id, $photo = ''){
         if(!empty($val->konfirmasi_wali)){
             $wali = $val->nama_wali;
@@ -142,7 +234,9 @@ class PendaftaranController extends Controller
             .'<a href="{{route(\'welcome\')}}"><button type="button" class="btn btn-danger">Selesai</button></a></div>'
             ."<br/>"
             ."<br/>"
-            ."</div>";
+            ."</div>"
+            ."</body>"
+            ."</html>";
         return response()->json(['data'=>$html,'status'=>true]);
     }
 
@@ -166,7 +260,7 @@ class PendaftaranController extends Controller
                     ."<h4><b>YAYASAN PENDIDIKAN “BALAI KUSUMA” SEKOLAH DASAR WONOKUSUMO JAYA No. 127</b></h4>"
                     ."<div>Alamat Kantor  : Wonokusumo Jaya VII / 10   Kode Pos 60153"
                     ."<br>Kecamatan : Semampir - Kota Surabaya  &#9742; (031) 3763997"
-                    ."<br>NSB:003962750307803 NSS:104056001041 NPSN:20532821</div>"
+                    ."<br>NSB:0039627503071003 NSS:104056001041 NPSN:20532821</div>"
                     ."</div>"
                     ."<div class='col-xs-2 col-md-2 col-sm-2'></div>"
                 ."</div>"
@@ -201,7 +295,7 @@ class PendaftaranController extends Controller
                     ."<div class='col-xs-2 col-sm-2 col-md-2 text-center'><img width='100px' title='{$file_foto}' src=\"{$file_foto}\" alt=\"{$file_foto}\"></div>"
                     ."<div class='col-xs-3 col-sm-3 col-md-3 text-center'></div>"
                 ."</div>"
-                ."<div style='margin-left: 80px;margin-right: 80px; margin-top: 20px'>"
+                ."<div style='margin-left: 100px;margin-right: 100px; margin-top: 20px'>"
                     ."<p style=\"text-align:justify\">Selamat, proses pendaftaran online siswa baru SD Wonokusumo Jaya 127 Surabaya telah berhasil.</p><br>"
                     ."<div style=\"alignment: right\"></div>"
                     ."<p id=\"saran\">*) Bukti cetak pendaftaran harap dibawa saat daftar ulang.</p>"
@@ -231,7 +325,7 @@ class PendaftaranController extends Controller
         $ayah = $siswa->getRelation('wali')->where('kategori',1)->first();
         $ibu = $siswa->getRelation('wali')->where('kategori',2)->first();
         $preview =
-            "<table width=\"800\" border=\"0\" align=\"center\" cellpadding=\"5\">"
+            "<table width=\"1000\" border=\"0\" align=\"center\" cellpadding=\"5\">"
             ."<tr>"
             ."<td colspan=\"2\">Info Siswa<hr/></td>"
             ."</tr>"

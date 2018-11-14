@@ -159,6 +159,10 @@ return [
          * Milon Barcode
          */
         Milon\Barcode\BarcodeServiceProvider::class,
+        /*
+         * Other
+         */
+        Aloha\Twilio\Support\Laravel\ServiceProvider::class,
     ],
 
     /*
@@ -210,6 +214,7 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
+        'Twilio' => Aloha\Twilio\Support\Laravel\Facade::class
     ],
 
 ];
